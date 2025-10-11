@@ -7,89 +7,107 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <!-- Flowbite -->
     <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+    <!-- AOS Animate On Scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
   </head>
 <body class="bg-gray-50 text-gray-800">
 
-  <!-- Navbar -->
-  <header class="bg-white shadow-md fixed w-full z-10">
-    <div class="container mx-auto flex items-center justify-between p-4">
-      <h1 class="text-2xl font-bold text-amber-700">Bakerins</h1>
-      <nav class="space-x-6">
-        <a href="index.html" class="hover:text-amber-600 font-bold">Home</a>
-        <a href="produk.html" class="hover:text-amber-600">Produk</a>
-        <a href="about.html" class="hover:text-amber-600">About</a>
-      </nav>
-    </div>
-  </header>
+<!-- Navbar -->
+<header class="bg-white shadow-md fixed w-full z-10" data-aos="fade-down">
+  <div class="container mx-auto flex items-center justify-between p-4">
+    <h1 class="text-2xl font-bold text-amber-700" data-aos="zoom-in" data-aos-delay="200">
+      Bakerins
+    </h1>
+    <nav class="space-x-6" data-aos="fade-left" data-aos-delay="400">
+      <a href="index.html" class="hover:text-amber-600 font-bold">Home</a>
+      <a href="produk.html" class="hover:text-amber-600">Produk</a>
+      <a href="about.html" class="hover:text-amber-600">About</a>
+    </nav>
+  </div>
+</header>
 
-  <!-- Hero Section -->
-  <section class="h-screen flex flex-col items-center justify-center text-center bg-[url('https://images.unsplash.com/photo-1542838132-92c53300491e')] bg-cover bg-center">
-    <div class="bg-black/50 p-8 rounded-xl">
-      <h2 class="text-4xl md:text-6xl font-extrabold text-white mb-4">Authentic Taste</h2>
-      <p class="text-xl text-white mb-6">In Every Bite</p>
-      <a href="#produk" class="px-6 py-3 bg-amber-600 text-white rounded-lg shadow hover:bg-amber-700">Lihat Produk</a>
-    </div>
-  </section>
 
-  <!-- Produk Section -->
-  <section id="produk" class="py-16 container mx-auto">
-    <h3 class="text-3xl font-bold text-center mb-6">Produk Unggulan.</h3>
+<!-- Hero Section -->
+<section 
+  class="h-screen flex flex-col items-center justify-center text-center bg-cover bg-center"
+  style="background-image: url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1600&q=80');"
+  data-aos="fade-in"
+>
+  <div class="bg-black/50 p-8 rounded-xl" data-aos="zoom-in">
+    <h2 class="text-4xl md:text-6xl font-extrabold text-white mb-4">Authentic Taste</h2>
+    <p class="text-xl text-white mb-6">In Every Bite</p>
+    <a href="#produk" class="px-6 py-3 bg-amber-600 text-white rounded-lg shadow hover:bg-amber-700">Lihat Produk</a>
+  </div>
+</section>
+
+
+
+<!-- Produk Section -->
+<section id="produk" class="py-16 container mx-auto" data-aos="fade-up">
+  <h3 class="text-3xl font-bold text-center mb-6" data-aos="fade-down" data-aos-duration="800">Produk Unggulan.</h3>
+  
+  <!-- Search + Category -->
+  <div class="flex flex-col md:flex-row items-center justify-between mb-8 gap-4" data-aos="fade-up" data-aos-delay="100">
+    <!-- Search -->
+    <input id="searchInput" type="text" placeholder="Cari produk..." 
+      class="w-full md:w-1/3 px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-amber-400">
+
+    <!-- Category -->
+    <div class="flex gap-3" data-aos="zoom-in" data-aos-delay="200">
+      <button class="filter-btn px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700" data-category="all">All</button>
+      <button class="filter-btn px-4 py-2 bg-gray-200 rounded-lg hover:bg-amber-600 hover:text-white" data-category="cake">Cake</button>
+      <button class="filter-btn px-4 py-2 bg-gray-200 rounded-lg hover:bg-amber-600 hover:text-white" data-category="bread">Bread</button>
+      <button class="filter-btn px-4 py-2 bg-gray-200 rounded-lg hover:bg-amber-600 hover:text-white" data-category="croissant">Croissant</button>
+    </div>
+  </div>
+
+  <!-- Produk Grid -->
+  <div id="produkGrid" class="grid gap-8 grid-cols-1 md:grid-cols-3">
     
-    <!-- Search + Category -->
-    <div class="flex flex-col md:flex-row items-center justify-between mb-8 gap-4">
-      <!-- Search -->
-      <input id="searchInput" type="text" placeholder="Cari produk..." 
-        class="w-full md:w-1/3 px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-amber-400">
-
-      <!-- Category -->
-      <div class="flex gap-3">
-        <button class="filter-btn px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700" data-category="all">All</button>
-        <button class="filter-btn px-4 py-2 bg-gray-200 rounded-lg hover:bg-amber-600 hover:text-white" data-category="cake">Cake</button>
-        <button class="filter-btn px-4 py-2 bg-gray-200 rounded-lg hover:bg-amber-600 hover:text-white" data-category="bread">Bread</button>
-        <button class="filter-btn px-4 py-2 bg-gray-200 rounded-lg hover:bg-amber-600 hover:text-white" data-category="croissant">Croissant</button>
-      </div>
+    <!-- Card 1 -->
+    <div class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition" 
+         data-category="cake" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+      <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" alt="Cake" class="rounded-lg mb-4">
+      <h4 class="nama-produk text-xl font-semibold">Chocolate Halo</h4>
+      <p class="text-gray-600 mb-2">Lezat, lembut, dan autentik.</p>
+      <span class="font-bold text-amber-700">Rp50.000</span>
     </div>
 
-    <!-- Produk Grid -->
-    <div id="produkGrid" class="grid gap-8 grid-cols-1 md:grid-cols-3">
-      
-      <!-- Card 1 -->
-      <div class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition" data-category="cake">
-        <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" alt="Cake" class="rounded-lg mb-4">
-        <h4 class="nama-produk text-xl font-semibold">Chocolate Halo</h4>
-        <p class="text-gray-600 mb-2">Lezat, lembut, dan autentik.</p>
-        <span class="font-bold text-amber-700">Rp50.000</span>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition" data-category="bread">
-        <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" alt="Cake" class="rounded-lg mb-4">
-        <h4 class="nama-produk text-xl font-semibold">Fresh Bread</h4>
-        <p class="text-gray-600 mb-2">Roti hangat setiap pagi.</p>
-        <span class="font-bold text-amber-700">Rp20.000</span>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition" data-category="croissant">
-        <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" alt="Cake" class="rounded-lg mb-4">
-        <h4 class="nama-produk text-xl font-semibold">Butter Croissant</h4>
-        <p class="text-gray-600 mb-2">Renyaaan dan buttery.</p>
-        <span class="font-bold text-amber-700">Rp25.000</span>
-      </div>
-
+    <!-- Card 2 -->
+    <div class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition" 
+         data-category="bread" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+      <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" alt="Cake" class="rounded-lg mb-4">
+      <h4 class="nama-produk text-xl font-semibold">Fresh Bread</h4>
+      <p class="text-gray-600 mb-2">Roti hangat setiap pagi.</p>
+      <span class="font-bold text-amber-700">Rp20.000</span>
     </div>
-  </section>
+
+    <!-- Card 3 -->
+    <div class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition" 
+         data-category="croissant" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+      <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" alt="Cake" class="rounded-lg mb-4">
+      <h4 class="nama-produk text-xl font-semibold">Butter Croissant</h4>
+      <p class="text-gray-600 mb-2">Renyaaan dan buttery.</p>
+      <span class="font-bold text-amber-700">Rp25.000</span>
+    </div>
+
+  </div>
+</section>
+
 
   <!-- About Section -->
-  <section id="about" class="py-16 bg-amber-50">
-    <div class="container mx-auto text-center max-w-2xl">
-      <h3 class="text-3xl font-bold mb-6">Tentang Bakerins</h3>
-      <p class="text-gray-700">
-        Bakerins hadir untuk memberikan pengalaman rasa autentik dalam setiap gigitan. 
-        Dengan bahan berkualitas dan resep rahasia, kami berkomitmen bla bla   terbaik untuk Anda.
-      </p>
-    </div>
-  </section>
+<section id="about" class="py-16 bg-amber-50" data-aos="fade-up">
+  <div class="container mx-auto text-center max-w-2xl" data-aos="zoom-in">
+    <h3 class="text-3xl font-bold mb-6">Tentang Bakerins</h3>
+    <p class="text-gray-700">
+      Bakerins hadir untuk memberikan pengalaman rasa autentik dalam setiap gigitan. 
+      Dengan bahan berkualitas dan resep rahasia, kami berkomitmen bla bla terbaik untuk Anda.
+    </p>
+  </div>
+</section>
+
 
   <!-- Footer -->
   <footer class="bg-amber-700 text-white py-6 text-center">
@@ -121,4 +139,14 @@
       });
     });
   </script>
+
+  <!-- AOS -->
+   <script>
+  AOS.init({
+    duration: 1000, 
+    once: true     
+  });
+</script>
+
+  </body>
 </html>
