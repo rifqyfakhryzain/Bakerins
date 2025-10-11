@@ -125,30 +125,46 @@
   </footer>
 
   <!-- Script Filter & Search -->
-  <script>
-    const searchInput = document.getElementById('searchInput');
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const produkCards = document.querySelectorAll('.produk');
+<script>
+  const searchInput = document.getElementById('searchInput');
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const produkCards = document.querySelectorAll('.produk');
 
-    // Filter kategori
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const category = btn.dataset.category;
-        produkCards.forEach(card => {
-          card.style.display = (category === 'all' || card.dataset.category === category) ? 'block' : 'none';
-        });
+  // === Filter kategori + aktifkan tombol ===
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Hapus style aktif dari semua tombol
+      filterBtns.forEach(b => {
+        b.classList.remove('bg-amber-600', 'text-white');
+        b.classList.add('bg-gray-200', 'text-gray-800');
       });
-    });
 
-    // Search produk
-    searchInput.addEventListener('input', () => {
-      const searchValue = searchInput.value.toLowerCase();
+      // Aktifkan tombol yang diklik
+      btn.classList.remove('bg-gray-200', 'text-gray-800');
+      btn.classList.add('bg-amber-600', 'text-white');
+
+      // Filter produk sesuai kategori
+      const category = btn.dataset.category;
       produkCards.forEach(card => {
-        const nama = card.querySelector('.nama-produk').textContent.toLowerCase();
-        card.style.display = nama.includes(searchValue) ? 'block' : 'none';
+        card.style.display = (category === 'all' || card.dataset.category === category)
+          ? 'block'
+          : 'none';
       });
+
+      // Reset animasi AOS setiap ganti kategori (biar animasi muncul ulang)
+      AOS.refresh();
     });
-  </script>
+  });
+
+  // === Search produk ===
+  searchInput.addEventListener('input', () => {
+    const searchValue = searchInput.value.toLowerCase();
+    produkCards.forEach(card => {
+      const nama = card.querySelector('.nama-produk').textContent.toLowerCase();
+      card.style.display = nama.includes(searchValue) ? 'block' : 'none';
+    });
+  });
+</script>
 
   <!-- AOS -->
    <script>
