@@ -1,159 +1,567 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bakerins | Produk</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-</head>
-<body class="bg-gray-50 text-gray-800">
-
-  <!-- Navbar -->
-  <header class="bg-white shadow-md fixed w-full z-10" data-aos="fade-down">
-    <div class="container mx-auto flex items-center justify-between p-4">
-      <h1 class="text-2xl font-bold text-amber-700" data-aos="zoom-in" data-aos-delay="200">Bakerins</h1>
-      <nav class="space-x-6" data-aos="fade-left" data-aos-delay="400">
-        <a href="index.html" class="hover:text-amber-600">Home</a>
-        <a href="produk.html" class="hover:text-amber-600 font-bold">Produk</a>
-        <a href="about.html" class="hover:text-amber-600">About</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Produk Section -->
-  <section id="produk" class="pt-28 pb-16 container mx-auto" data-aos="fade-up">
-    <h3 class="text-3xl font-bold text-center mb-8" data-aos="fade-down" data-aos-duration="800">Produk Unggulan</h3>
-    
-    <!-- Search + Category -->
-    <div class="flex flex-col md:flex-row items-center justify-between mb-10 gap-4" data-aos="fade-up" data-aos-delay="100">
-      <!-- Search -->
-<input 
-  id="searchInput" 
-  type="text" 
-  placeholder="Cari produk..." 
-  class="w-full md:w-1/3 px-4 py-2 border border-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400"
-/>
-
-      <!-- Category -->
-      <div class="flex gap-3" data-aos="zoom-in" data-aos-delay="200">
-        <button class="filter-btn px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700" data-category="all">All</button>
-        <button class="filter-btn px-4 py-2 bg-gray-200 rounded-lg hover:bg-amber-600 hover:text-white" data-category="cake">Cake</button>
-        <button class="filter-btn px-4 py-2 bg-gray-200 rounded-lg hover:bg-amber-600 hover:text-white" data-category="bread">Bread</button>
-        <button class="filter-btn px-4 py-2 bg-gray-200 rounded-lg hover:bg-amber-600 hover:text-white" data-category="croissant">Croissant</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bakerins | Produk</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body class="bg-gray-50 text-gray-800">
+    <!-- Navbar -->
+    <header class="bg-white shadow-md fixed w-full z-10" data-aos="fade-down">
+      <div class="container mx-auto flex items-center justify-between p-4">
+        <h1
+          class="text-2xl font-bold text-amber-700"
+          data-aos="zoom-in"
+          data-aos-delay="200"
+        >
+          Bakerins
+        </h1>
+        <nav class="space-x-6" data-aos="fade-left" data-aos-delay="400">
+          <a href="index.html" class="hover:text-amber-600">Home</a>
+          <a href="produk.html" class="hover:text-amber-600 font-bold"
+            >Produk</a
+          >
+          <a href="about.html" class="hover:text-amber-600">About</a>
+        </nav>
       </div>
-    </div>
+    </header>
 
-    <!-- Daftar Produk -->
-    <div class="grid gap-8 grid-cols-1 md:grid-cols-3">
+    <!-- Produk Section -->
+    <section
+      id="produk"
+      class="pt-28 pb-16 container mx-auto"
+      data-aos="fade-up"
+    >
+      <h3
+        class="text-3xl font-bold text-center mb-8"
+        data-aos="fade-down"
+        data-aos-duration="800"
+      >
+        Produk
+      </h3>
 
-      <!-- Produk 1 -->
-      <div class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition" 
-           data-category="cake" data-aos="fade-up" data-aos-delay="100">
-        <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" 
-             alt="Chocolate Cake" class="rounded-lg mb-4">
-        <h4 class="text-xl font-semibold nama-produk">Chocolate Cake</h4>
-        <p class="text-gray-600 mb-2">Lezat, lembut, dan autentik.</p>
-        <span class="font-bold text-amber-700">Rp50.000</span>
-      </div>
+      <!-- Search + Category -->
+      <div
+        class="flex flex-col md:flex-row items-center justify-between mb-10 gap-4"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        <!-- Search -->
+        <input
+          id="searchInput"
+          type="text"
+          placeholder="Cari produk..."
+          class="w-full md:w-1/3 px-4 py-2 border border-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400"
+        />
 
-      <!-- Produk 2 -->
-      <div class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition" 
-           data-category="bread" data-aos="fade-up" data-aos-delay="200">
-        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff" 
-             alt="Fresh Bread" class="rounded-lg mb-4">
-        <h4 class="text-xl font-semibold nama-produk">Fresh Bread</h4>
-        <p class="text-gray-600 mb-2">Roti hangat setiap pagi.</p>
-        <span class="font-bold text-amber-700">Rp20.000</span>
-      </div>
-
-      <!-- Produk 3 -->
-      <div class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition" 
-           data-category="croissant" data-aos="fade-up" data-aos-delay="300">
-        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587" 
-             alt="Butter Croissant" class="rounded-lg mb-4">
-        <h4 class="text-xl font-semibold nama-produk">Butter Croissant</h4>
-        <p class="text-gray-600 mb-2">Renyaaan dan buttery.</p>
-        <span class="font-bold text-amber-700">Rp25.000</span>
-      </div>
-
-      <!-- Produk 4 -->
-      <div class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition" 
-           data-category="cake" data-aos="fade-up" data-aos-delay="400">
-        <img src="https://images.unsplash.com/photo-1586985289688-27624e1b3d30" 
-             alt="Strawberry Cake" class="rounded-lg mb-4">
-        <h4 class="text-xl font-semibold nama-produk">Strawberry Cake</h4>
-        <p class="text-gray-600 mb-2">Manis segar dengan buah asli.</p>
-        <span class="font-bold text-amber-700">Rp55.000</span>
-      </div>
-
-      <!-- Produk 5 -->
-      <div class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition" 
-           data-category="bread" data-aos="fade-up" data-aos-delay="500">
-        <img src="https://images.unsplash.com/photo-1598373182133-9d4f5c2a849d" 
-             alt="Sweet Donut" class="rounded-lg mb-4">
-        <h4 class="text-xl font-semibold nama-produk">Sweet Donut</h4>
-        <p class="text-gray-600 mb-2">Glazed donat empuk dan manis.</p>
-        <span class="font-bold text-amber-700">Rp15.000</span>
+        <!-- Category -->
+        <div class="flex gap-3" data-aos="zoom-in" data-aos-delay="200">
+          <button
+            class="filter-btn px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700"
+            data-category="all"
+          >
+            All
+          </button>
+          <button
+            class="filter-btn px-4 py-2 bg-gray-200 rounded-lg hover:bg-amber-600 hover:text-white"
+            data-category="es"
+          >
+            Ice
+          </button>
+          <button
+            class="filter-btn px-4 py-2 bg-gray-200 rounded-lg hover:bg-amber-600 hover:text-white"
+            data-category="cake"
+          >
+            Cake
+          </button>
+          <button
+            class="filter-btn px-4 py-2 bg-gray-200 rounded-lg hover:bg-amber-600 hover:text-white"
+            data-category="bread"
+          >
+            Kue Basah
+          </button>
+          <button
+            class="filter-btn px-4 py-2 bg-gray-200 rounded-lg hover:bg-amber-600 hover:text-white"
+            data-category="croissant"
+          >
+            Snack
+          </button>
+        </div>
       </div>
 
-      <!-- Produk 6 -->
-      <div class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition" 
-           data-category="cake" data-aos="fade-up" data-aos-delay="600">
-        <img src="https://images.unsplash.com/photo-1601933470928-c0f4c6b6c2c1" 
-             alt="Blueberry Muffin" class="rounded-lg mb-4">
-        <h4 class="text-xl font-semibold nama-produk">Blueberry Muffin</h4>
-        <p class="text-gray-600 mb-2">Muffin lembut dengan blueberry asli.</p>
-        <span class="font-bold text-amber-700">Rp18.000</span>
+      <script>
+        const buttons = document.querySelectorAll(".filter-btn");
+
+        buttons.forEach((button) => {
+          button.addEventListener("click", () => {
+            // Hapus status aktif dari semua tombol
+            buttons.forEach((btn) => {
+              btn.classList.remove("bg-amber-600", "text-white");
+              btn.classList.add("bg-gray-200");
+            });
+
+            // Tambahkan status aktif ke tombol yang diklik
+            button.classList.remove("bg-gray-200");
+            button.classList.add("bg-amber-600", "text-white");
+          });
+        });
+      </script>
+
+      <!-- Daftar Produk -->
+      <div class="grid gap-8 grid-cols-1 md:grid-cols-3">
+        <!-- Produk 1 -->
+        <!-- Es Coklat -->
+        <div
+          class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition"
+          data-category="es"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092"
+            alt="Chocolate Cake"
+            class="rounded-lg mb-4"
+          />
+          <h4 class="text-xl font-semibold nama-produk">Ice Coklat</h4>
+          <p class="text-gray-600 mb-2">Lezat, lembut, dan autentik.</p>
+          <span class="font-bold text-amber-700">Rp50.000</span>
+        </div>
+
+        <!-- Produk 2 -->
+        <!-- Ice Macha -->
+        <div
+          class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition"
+          data-category="es"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092"
+            alt="Chocolate Cake"
+            class="rounded-lg mb-4"
+          />
+          <h4 class="text-xl font-semibold nama-produk">Ice Macha</h4>
+          <p class="text-gray-600 mb-2">Lezat, lembut, dan autentik.</p>
+          <span class="font-bold text-amber-700">Rp50.000</span>
+        </div>
+
+        <!-- Produk 3 -->
+        <!-- Ice Vanilla -->
+        <div
+          class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition"
+          data-category="es"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092"
+            alt="Chocolate Cake"
+            class="rounded-lg mb-4"
+          />
+          <h4 class="text-xl font-semibold nama-produk">Ice Vanilla</h4>
+          <p class="text-gray-600 mb-2">Lezat, lembut, dan autentik.</p>
+          <span class="font-bold text-amber-700">Rp50.000</span>
+        </div>
+
+        <!-- Produk 4 -->
+        <!-- Ice Mochaccino -->
+        <div
+          class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition"
+          data-category="es"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092"
+            alt="Chocolate Cake"
+            class="rounded-lg mb-4"
+          />
+          <h4 class="text-xl font-semibold nama-produk">Ice Mochaccino</h4>
+          <p class="text-gray-600 mb-2">Lezat, lembut, dan autentik.</p>
+          <span class="font-bold text-amber-700">Rp50.000</span>
+        </div>
+
+        <!-- Produk 5 -->
+        <!-- Ice Choco Cream -->
+        <div
+          class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition"
+          data-category="es"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092"
+            alt="Chocolate Cake"
+            class="rounded-lg mb-4"
+          />
+          <h4 class="text-xl font-semibold nama-produk">Ice Choco Cream</h4>
+          <p class="text-gray-600 mb-2">Lezat, lembut, dan autentik.</p>
+          <span class="font-bold text-amber-700">Rp50.000</span>
+        </div>
+
+        <!-- Produk 6 -->
+        <!-- Ice Sirsak -->
+        <div
+          class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition"
+          data-category="es"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092"
+            alt="Chocolate Cake"
+            class="rounded-lg mb-4"
+          />
+          <h4 class="text-xl font-semibold nama-produk">Ice Sirsak</h4>
+          <p class="text-gray-600 mb-2">Lezat, lembut, dan autentik.</p>
+          <span class="font-bold text-amber-700">Rp50.000</span>
+        </div>
+
+        <!-- Produk 7 -->
+        <!-- Ice Mangga -->
+        <div
+          class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition"
+          data-category="es"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092"
+            alt="Chocolate Cake"
+            class="rounded-lg mb-4"
+          />
+          <h4 class="text-xl font-semibold nama-produk">Ice Mangga</h4>
+          <p class="text-gray-600 mb-2">Lezat, lembut, dan autentik.</p>
+          <span class="font-bold text-amber-700">Rp50.000</span>
+        </div>
+
+        <!-- Produk 8 -->
+        <!-- Ice Kelapa -->
+        <div
+          class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition"
+          data-category="es"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092"
+            alt="Chocolate Cake"
+            class="rounded-lg mb-4"
+          />
+          <h4 class="text-xl font-semibold nama-produk">Ice Kelapa</h4>
+          <p class="text-gray-600 mb-2">Lezat, lembut, dan autentik.</p>
+          <span class="font-bold text-amber-700">Rp50.000</span>
+        </div>
+
+        <!-- Produk 9 -->
+        <!-- Ice Buah Naga -->
+        <div
+          class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition"
+          data-category="es"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092"
+            alt="Chocolate Cake"
+            class="rounded-lg mb-4"
+          />
+          <h4 class="text-xl font-semibold nama-produk">Ice Naga</h4>
+          <p class="text-gray-600 mb-2">Lezat, lembut, dan autentik.</p>
+          <span class="font-bold text-amber-700">Rp50.000</span>
+        </div>
+
+        <!-- Produk 10 -->
+        <!-- Ice Burcang -->
+        <div
+          class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition"
+          data-category="es"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092"
+            alt="Chocolate Cake"
+            class="rounded-lg mb-4"
+          />
+          <h4 class="text-xl font-semibold nama-produk">Ice Burcang</h4>
+          <p class="text-gray-600 mb-2">Lezat, lembut, dan autentik.</p>
+          <span class="font-bold text-amber-700">Rp50.000</span>
+        </div>
+
+        <!-- Produk 11 -->
+        <!-- Ice Nangka -->
+        <div
+          class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition"
+          data-category="es"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092"
+            alt="Chocolate Cake"
+            class="rounded-lg mb-4"
+          />
+          <h4 class="text-xl font-semibold nama-produk">Ice Nangka</h4>
+          <p class="text-gray-600 mb-2">Lezat, lembut, dan autentik.</p>
+          <span class="font-bold text-amber-700">Rp50.000</span>
+        </div>
+
+        <!-- Produk 12 -->
+        <!-- Ice Jambu -->
+        <div
+          class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition"
+          data-category="es"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092"
+            alt="Chocolate Cake"
+            class="rounded-lg mb-4"
+          />
+          <h4 class="text-xl font-semibold nama-produk">Ice Jambu</h4>
+          <p class="text-gray-600 mb-2">Lezat, lembut, dan autentik.</p>
+          <span class="font-bold text-amber-700">Rp50.000</span>
+        </div>
+
+        <!-- Produk 13 -->
+        <!-- Ice Burcang -->
+        <div
+          class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition"
+          data-category="es"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092"
+            alt="Chocolate Cake"
+            class="rounded-lg mb-4"
+          />
+          <h4 class="text-xl font-semibold nama-produk">Ice Nanas</h4>
+          <p class="text-gray-600 mb-2">Lezat, lembut, dan autentik.</p>
+          <span class="font-bold text-amber-700">Rp50.000</span>
+        </div>
+
+        <!-- Produk 14 -->
+        <!-- Ice StrawBerry -->
+        <div
+          class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition"
+          data-category="es"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092"
+            alt="Chocolate Cake"
+            class="rounded-lg mb-4"
+          />
+          <h4 class="text-xl font-semibold nama-produk">Ice Strawberry</h4>
+          <p class="text-gray-600 mb-2">Lezat, lembut, dan autentik.</p>
+          <span class="font-bold text-amber-700">Rp50.000</span>
+        </div>
+
+        <!-- Produk 15 -->
+        <!-- Milo -->
+        <div
+          class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition"
+          data-category="es"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092"
+            alt="Chocolate Cake"
+            class="rounded-lg mb-4"
+          />
+          <h4 class="text-xl font-semibold nama-produk">Milo</h4>
+          <p class="text-gray-600 mb-2">Lezat, lembut, dan autentik.</p>
+          <span class="font-bold text-amber-700">Rp50.000</span>
+        </div>
+        <!-- Produk 15 -->
+        <!-- Milo -->
+        <div
+          class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition"
+          data-category="es"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092"
+            alt="Chocolate Cake"
+            class="rounded-lg mb-4"
+          />
+          <h4 class="text-xl font-semibold nama-produk">Milo</h4>
+          <p class="text-gray-600 mb-2">Lezat, lembut, dan autentik.</p>
+          <span class="font-bold text-amber-700">Rp50.000</span>
+        </div>
+        <!-- Produk 15 -->
+        <!-- Milo -->
+        <div
+          class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition"
+          data-category="es"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092"
+            alt="Chocolate Cake"
+            class="rounded-lg mb-4"
+          />
+          <h4 class="text-xl font-semibold nama-produk">Milo</h4>
+          <p class="text-gray-600 mb-2">Lezat, lembut, dan autentik.</p>
+          <span class="font-bold text-amber-700">Rp50.000</span>
+        </div>
+        <!-- Produk 15 -->
+        <!-- Milo -->
+        <div
+          class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition"
+          data-category="es"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092"
+            alt="Chocolate Cake"
+            class="rounded-lg mb-4"
+          />
+          <h4 class="text-xl font-semibold nama-produk">Milo</h4>
+          <p class="text-gray-600 mb-2">Lezat, lembut, dan autentik.</p>
+          <span class="font-bold text-amber-700">Rp50.000</span>
+        </div>
+        <!-- Produk 15 -->
+        <!-- Milo -->
+        <div
+          class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition"
+          data-category="es"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092"
+            alt="Chocolate Cake"
+            class="rounded-lg mb-4"
+          />
+          <h4 class="text-xl font-semibold nama-produk">Milo</h4>
+          <p class="text-gray-600 mb-2">Lezat, lembut, dan autentik.</p>
+          <span class="font-bold text-amber-700">Rp50.000</span>
+        </div>
+
+
       </div>
 
-    </div>
-  </section>
 
-  <!-- Footer -->
-  <footer class="bg-amber-700 text-white py-6 text-center" data-aos="fade-up">
-    <p>&copy; 2025 Bakerins. All Rights Reserved.</p>
-  </footer>
+      
+      <!-- Pagination -->
+      <div id="pagination" class="flex justify-center mt-8 gap-2"></div>
+    </section>
 
-  <!-- Script AOS -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 800,
-      once: true,
-    });
-  </script>
+    <!-- Footer -->
+    <footer class="bg-amber-700 text-white py-6 text-center" data-aos="fade-up">
+      <p>&copy; 2025 Bakerins. All Rights Reserved.</p>
+    </footer>
 
-  <!-- Script Filter & Search -->
-  <script>
-    const searchInput = document.getElementById('searchInput');
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const produkCards = document.querySelectorAll('.produk');
+    <!-- Script AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 800,
+        once: true,
+      });
+    </script>
 
-    // Filter kategori
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const category = btn.dataset.category;
+    <!-- Script Filter, Search & Pagination -->
+    <script>
+      const searchInput = document.getElementById("searchInput");
+      const filterBtns = document.querySelectorAll(".filter-btn");
+      const produkCards = document.querySelectorAll(".produk");
+      const pagination = document.getElementById("pagination");
 
-        // Ganti warna tombol aktif
-        filterBtns.forEach(b => b.classList.remove('bg-amber-600', 'text-white'));
-        btn.classList.add('bg-amber-600', 'text-white');
+      const produkPerPage = 9; // Maksimal 9 produk per halaman
+      let currentPage = 1;
 
-        produkCards.forEach(card => {
-          card.style.display = (category === 'all' || card.dataset.category === category) ? 'block' : 'none';
+      // Inisialisasi: tampilkan semua produk
+      produkCards.forEach((card) => (card.dataset.show = "1"));
+
+      // Fungsi render produk sesuai halaman
+function renderProduk() {
+  const filteredCards = Array.from(produkCards).filter(
+    (card) => card.dataset.show !== "0"
+  );
+  const start = (currentPage - 1) * produkPerPage;
+  const end = start + produkPerPage;
+
+  // Sembunyikan semua card
+  produkCards.forEach(card => card.style.display = 'none');
+
+  // Tampilkan sesuai halaman
+  filteredCards.slice(start, end).forEach(card => card.style.display = 'block');
+
+  renderPagination(filteredCards.length);
+}
+
+
+      // Fungsi render tombol pagination
+      function renderPagination(filteredCount) {
+        const totalPages = Math.ceil(filteredCount / produkPerPage);
+        pagination.innerHTML = "";
+
+        for (let i = 1; i <= totalPages; i++) {
+          const btn = document.createElement("button");
+          btn.textContent = i;
+          btn.className = `px-3 py-1 rounded border ${
+            i === currentPage ? "bg-amber-600 text-white" : "bg-gray-200"
+          }`;
+          btn.addEventListener("click", () => {
+            currentPage = i;
+            renderProduk();
+          });
+          pagination.appendChild(btn);
+        }
+      }
+
+      // Filter kategori
+      filterBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const category = btn.dataset.category;
+
+          // Ubah warna tombol aktif
+          filterBtns.forEach((b) =>
+            b.classList.remove("bg-amber-600", "text-white")
+          );
+          btn.classList.add("bg-amber-600", "text-white");
+
+          // Tandai produk mana yang tampil
+          produkCards.forEach((card) => {
+            card.dataset.show =
+              category === "all" || card.dataset.category === category
+                ? "1"
+                : "0";
+          });
+
+          currentPage = 1; // reset ke halaman 1
+          renderProduk();
         });
       });
-    });
 
-    // Search produk
-    searchInput.addEventListener('input', () => {
-      const searchValue = searchInput.value.toLowerCase();
-      produkCards.forEach(card => {
-        const nama = card.querySelector('.nama-produk').textContent.toLowerCase();
-        card.style.display = nama.includes(searchValue) ? 'block' : 'none';
+      // Search produk
+      searchInput.addEventListener("input", () => {
+        const searchValue = searchInput.value.toLowerCase();
+        produkCards.forEach((card) => {
+          const nama = card
+            .querySelector(".nama-produk")
+            .textContent.toLowerCase();
+          card.dataset.show = nama.includes(searchValue) ? "1" : "0";
+        });
+
+        currentPage = 1; // reset ke halaman 1
+        renderProduk();
       });
-    });
-  </script>
 
-</body>
+      // Inisialisasi pertama kali
+      renderProduk();
+    </script>
+  </body>
 </html>
