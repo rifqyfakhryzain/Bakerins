@@ -16,6 +16,13 @@ const dataProduk = {
     deskripsi: "Nikmatnya es matcha dengan aroma khas teh hijau yang menyegarkan.",
     gambar: "img/ice_matcha.jpg"
   },
+
+  // Produk 3
+  "Ice Vanilla": {
+    harga: "Rp1.000",
+    deskripsi: "Nikmatnya es matcha dengan aroma khas teh hijau yang menyegarkan.",
+    gambar: "img/vanilla.jpg"
+  },
   
   // Produk 5
   "Ice Choco Cream": {
