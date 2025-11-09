@@ -42,17 +42,17 @@
 </section>
 
 <!-- Produk Section -->
-<section id="produk" class="py-16 container mx-auto" data-aos="fade-up">
+<section id="produk" class="py-16 container mx-auto px-4 md:px-0" data-aos="fade-up">
   <h3 class="text-3xl font-bold text-center mb-6" data-aos="fade-down" data-aos-duration="800">Produk Unggulan.</h3>
   
   <!-- Search + Category -->
-  <div class="flex flex-col md:flex-row items-center justify-between mb-8 gap-4" data-aos="fade-up" data-aos-delay="100">
+  <div class="flex flex-col md:flex-row items-center justify-between mb-8 gap-4 md:gap-6 px-2 sm:px-4" data-aos="fade-up" data-aos-delay="100">
     <!-- Search -->
     <input id="searchInput" type="text" placeholder="Cari produk..." 
       class="w-full md:w-1/3 px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-sky-300">
 
     <!-- Category -->
-    <div class="flex gap-3" data-aos="zoom-in" data-aos-delay="200">
+    <div class="flex flex-wrap justify-center gap-3" data-aos="zoom-in" data-aos-delay="200">
       <button class="filter-btn px-4 py-2 bg-sky-500 text-white rounded-lg hover:bg-sky-600" data-category="all">All</button>
       <button class="filter-btn px-4 py-2 bg-gray-200 rounded-lg hover:bg-sky-500 hover:text-white" data-category="bolu">Bolu</button>
       <button class="filter-btn px-4 py-2 bg-gray-200 rounded-lg hover:bg-sky-500 hover:text-white" data-category="es">Es</button>
@@ -62,12 +62,12 @@
   </div>
 
   <!-- Produk Grid -->
-  <div id="produkGrid" class="grid gap-8 grid-cols-1 md:grid-cols-3">
+  <div id="produkGrid" class="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
     
     <!-- Card 1 -->
     <div class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition" 
          data-category="bolu" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
-      <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" alt="bolu" class="rounded-lg mb-4">
+      <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" alt="bolu" class="rounded-lg mb-4 w-full h-56 object-cover">
       <h4 class="nama-produk text-xl font-semibold">Bolu Pisang</h4>
       <p class="text-gray-600 mb-2">Lezat, lembut, dan autentik.</p>
       <span class="font-bold text-sky-700">Rp50.000</span>
@@ -76,7 +76,7 @@
     <!-- Card 2 -->
     <div class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition" 
          data-category="es" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-      <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" alt="es" class="rounded-lg mb-4">
+      <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" alt="es" class="rounded-lg mb-4 w-full h-56 object-cover">
       <h4 class="nama-produk text-xl font-semibold">Es Duren</h4>
       <p class="text-gray-600 mb-2">Roti hangat setiap pagi.</p>
       <span class="font-bold text-sky-700">Rp20.000</span>
@@ -85,7 +85,7 @@
     <!-- Card 3 -->
     <div class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition" 
          data-category="dessert" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
-      <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" alt="dessert" class="rounded-lg mb-4">
+      <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" alt="dessert" class="rounded-lg mb-4 w-full h-56 object-cover">
       <h4 class="nama-produk text-xl font-semibold">Butter Croissant</h4>
       <p class="text-gray-600 mb-2">Renyaaan dan buttery.</p>
       <span class="font-bold text-sky-700">Rp25.000</span>
@@ -93,8 +93,8 @@
 
     <!-- Card 4 -->
     <div class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition" 
-         data-category="snack" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
-      <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" alt="snack" class="rounded-lg mb-4">
+         data-category="snack" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+      <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" alt="snack" class="rounded-lg mb-4 w-full h-56 object-cover">
       <h4 class="nama-produk text-xl font-semibold">A</h4>
       <p class="text-gray-600 mb-2">Renyaaan dan buttery.</p>
       <span class="font-bold text-sky-700">Rp25.000</span>
@@ -105,11 +105,11 @@
 
 <!-- About Section -->
 <section id="about" class="py-16 bg-sky-50" data-aos="fade-up">
-  <div class="container mx-auto text-center max-w-2xl" data-aos="zoom-in">
+  <div class="container mx-auto text-center max-w-2xl px-4 md:px-0" data-aos="zoom-in">
     <h3 class="text-3xl font-bold mb-6 text-sky-700">Tentang Bakerins</h3>
     <p class="text-gray-700">
       Bakerins hadir untuk memberikan pengalaman rasa autentik dalam setiap gigitan. 
-      Dengan bahan berkualitas dan resep rahasia, kami berkomitmen bla bla terbaik untuk Anda.
+      Dengan bahan berkualitas dan resep rahasia, kami berkomitmen memberikan yang terbaik untuk Anda.
     </p>
   </div>
 </section>
