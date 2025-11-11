@@ -4,31 +4,44 @@
 const dataProduk = {
   
   // Produk 1
-  "Ice Coklat": {
-    harga: "Rp50.000",
+  "Es Jeruk": {
+    harga: "Rp 1.000",
     deskripsi: "Es coklat lezat dengan rasa autentik, dibuat dari coklat pilihan terbaik.",
-    gambar: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092"
+    gambar: "img/jeruk.jpg"
   },
 
   // PProduk 2
-  "Ice Matcha": {
-    harga: "Rp1.000",
+  "Es Matcha": {
+    harga: "Rp 1.000",
     deskripsi: "Nikmatnya es matcha dengan aroma khas teh hijau yang menyegarkan.",
-    gambar: "img/ice_matcha.jpg"
+    gambar: "img/matcha.jpg"
   },
 
   // Produk 3
-  "Ice Vanilla": {
-    harga: "Rp1.000",
+  "Es Vanilla": {
+    harga: "Rp 1.000",
     deskripsi: "Nikmatnya es matcha dengan aroma khas teh hijau yang menyegarkan.",
     gambar: "img/vanilla.jpg"
   },
+
+  // Produk 4
+  "Es Cappucino": {
+    harga: "Rp 1.000",
+    deskripsi: "Nikmatnya es matcha dengan aroma khas teh hijau yang menyegarkan.",
+    gambar: "img/cappucino.jpg"
+  },
   
   // Produk 5
-  "Ice Choco Cream": {
-    harga: "Rp1.000",
+  "Es ChocoCream": {
+    harga: "Rp 1.000",
     deskripsi: "Nikmatnya es matcha dengan aroma khas teh hijau yang menyegarkan.",
     gambar: "img/choco_cream.jpg"
+  },
+  // Produk 6
+  "Es Alpukat": {
+    harga: "Rp 1.000",
+    deskripsi: "Nikmatnya es matcha dengan aroma khas teh hijau yang menyegarkan.",
+    gambar: "img/alpukat.jpg"
   },
 
   "Bolu Pisang": {
