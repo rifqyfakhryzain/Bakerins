@@ -13,6 +13,9 @@
 - Menambahkan produk baru **Bubur Kacang** di `produk.html`
 - Menambahkan produk baru **Es KacangCoklat** di `produk.html`
 - Menambahkan produk baru **Es Jambu** di `produk.html`
+- Menambahkan produk baru **Milo** di `produk.html`
+- Menambahkan produk baru **Bolu Pisang** di `produk.html`
+- Menambahkan produk baru **Brownies** di `produk.html`
 
 - Update data produk di `produk-detail.js`
 - Commit & push ke GitHub (`git push origin main`)
