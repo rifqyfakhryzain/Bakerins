@@ -37,11 +37,40 @@ const dataProduk = {
     deskripsi: "Nikmatnya es matcha dengan aroma khas teh hijau yang menyegarkan.",
     gambar: "img/choco_cream.jpg"
   },
+  
   // Produk 6
   "Es Alpukat": {
     harga: "Rp 1.000",
     deskripsi: "Nikmatnya es matcha dengan aroma khas teh hijau yang menyegarkan.",
     gambar: "img/alpukat.jpg"
+  },
+
+  // Produk 7
+  "Es Mangga": {
+    harga: "Rp 1.000",
+    deskripsi: "Nikmatnya es matcha dengan aroma khas teh hijau yang menyegarkan.",
+    gambar: "img/mangga.jpg"
+  },
+
+  // Produk 8
+  "Bubur Kacang": {
+    harga: "Rp 1.000",
+    deskripsi: "Nikmatnya es matcha dengan aroma khas teh hijau yang menyegarkan.",
+    gambar: "img/buburkacang.jpg"
+  },
+
+  // Produk 9
+  "Es Coklat": {
+    harga: "Rp 1.000",
+    deskripsi: "Nikmatnya es matcha dengan aroma khas teh hijau yang menyegarkan.",
+    gambar: "img/coklat.jpg"
+  },
+
+  // Produk 10
+  "Es Jambu": {
+    harga: "Rp 1.000",
+    deskripsi: "Nikmatnya es matcha dengan aroma khas teh hijau yang menyegarkan.",
+    gambar: "img/jambu.jpg"
   },
 
   "Bolu Pisang": {
