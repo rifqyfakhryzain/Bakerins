@@ -73,16 +73,28 @@ const dataProduk = {
     gambar: "img/jambu.jpg"
   },
 
-  "Bolu Pisang": {
-    harga: "Rp45.000",
-    deskripsi: "Bolu pisang lembut dengan aroma manis alami, cocok untuk teman minum teh.",
-    gambar: "https://images.unsplash.com/photo-1610878180933-1234567890ab"
+  // Produk 11
+  "Milo": {
+    harga: "Rp 1.000",
+    deskripsi: "Nikmatnya es matcha dengan aroma khas teh hijau yang menyegarkan.",
+    gambar: "img/milo.jpg"
   },
-  "Kue Lapis": {
-    harga: "Rp30.000",
-    deskripsi: "Kue lapis tradisional dengan lapisan warna cantik dan rasa manis lembut.",
-    gambar: "https://images.unsplash.com/photo-1627308595229-7830a5c91f9f"
-  }
+
+  // Produk XX
+  "Bolu Pisang": {
+    harga: "Rp50.000",
+    deskripsi: "Bolu pisang lembut dengan aroma manis alami, cocok untuk teman minum teh.",
+    gambar: "img/bolupisang.jpg"
+  },
+
+  // Produk XX
+  "Brownies": {
+    harga: "Rp50.000",
+    deskripsi: "Bolu pisang lembut dengan aroma manis alami, cocok untuk teman minum teh.",
+    gambar: "img/brownies.jpg"
+  },
+
+
 };
 
 // Fungsi utama untuk menampilkan detail produk
