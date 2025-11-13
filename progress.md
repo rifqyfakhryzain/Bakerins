@@ -21,4 +21,10 @@
 - Commit & push ke GitHub (`git push origin main`)
 - Cek tampilan produk baru di browser
 
+## 🗓️ Tanggal: 13 November 2025
 
+### ✅ Apa yang Dikerjakan Hari Ini
+- Menambahkan JavaScript External **aos-index.js** di `Folder Js`
+- Menambahkan JavaScript External **aos-produk.js** di `Folder Js`
+- Menambahkan JavaScript External **main.js** di `Folder Js`
+- Menambahkan JavaScript External **produk.js** di `Folder Js`
