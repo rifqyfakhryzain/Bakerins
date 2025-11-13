@@ -2,7 +2,7 @@
 
 const searchInput = document.getElementById("searchInput");
 const filterBtns = document.querySelectorAll(".filter-btn");
-const produkCards = document.querySelectorAll(".produk"); // div di dalam <a>
+const produkCards = Array.from(document.querySelectorAll(".produk")); // div di dalam <a>
 const pagination = document.getElementById("pagination");
 
 const produkPerPage = 9;
@@ -12,7 +12,7 @@ let currentPage = 1;
 let activeCategory = "all";
 let searchQuery = "";
 
-// util: cek match kategori + search
+// 🔹 Fungsi util: cek match kategori + search
 function isMatch(card) {
   const matchCategory =
     activeCategory === "all" || card.dataset.category === activeCategory;
@@ -23,18 +23,30 @@ function isMatch(card) {
   return matchCategory && matchSearch;
 }
 
-// terapkan filter ke setiap card → set dataset.show
+// 🔹 Terapkan filter ke setiap card → set dataset.show
 function applyFilters() {
   produkCards.forEach((card) => {
     card.dataset.show = isMatch(card) ? "1" : "0";
   });
 }
 
-// render produk sesuai halaman & filter
-function renderProduk() {
-  const visible = Array.from(produkCards).filter((c) => c.dataset.show === "1");
+// 🔹 Urutkan produk secara alfabet (A–Z)
+function sortByName(list) {
+  return list.sort((a, b) => {
+    const nameA = a.querySelector(".nama-produk").textContent.toLowerCase();
+    const nameB = b.querySelector(".nama-produk").textContent.toLowerCase();
+    return nameA.localeCompare(nameB);
+  });
+}
 
-  // sembunyikan semuanya dulu (sembunyikan <a> pembungkus)
+// 🔹 Render produk sesuai halaman & filter
+function renderProduk() {
+  // filter produk yang tampil
+  const visible = sortByName(
+    Array.from(produkCards).filter((c) => c.dataset.show === "1")
+  );
+
+  // sembunyikan semuanya dulu
   produkCards.forEach((card) => {
     const wrapper = card.closest("a");
     if (wrapper) wrapper.style.display = "none";
@@ -51,9 +63,12 @@ function renderProduk() {
   });
 
   renderPagination(visible.length);
+
+  // 🔹 scroll ke atas saat render (misal pindah halaman)
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-// render tombol pagination
+// 🔹 Render tombol pagination
 function renderPagination(totalVisible) {
   const totalPages = Math.max(1, Math.ceil(totalVisible / produkPerPage));
   if (currentPage > totalPages) currentPage = 1;
@@ -73,10 +88,9 @@ function renderPagination(totalVisible) {
   }
 }
 
-// handler kategori (sekaligus urus style aktif)
+// 🔹 Handler kategori
 filterBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
-    // style aktif
     filterBtns.forEach((b) => {
       b.classList.remove("bg-sky-600", "text-white");
       b.classList.add("bg-gray-200");
@@ -84,7 +98,6 @@ filterBtns.forEach((btn) => {
     btn.classList.add("bg-sky-600", "text-white");
     btn.classList.remove("bg-gray-200");
 
-    // set state + render
     activeCategory = btn.dataset.category || "all";
     currentPage = 1;
     applyFilters();
@@ -92,7 +105,7 @@ filterBtns.forEach((btn) => {
   });
 });
 
-// handler search
+// 🔹 Handler search
 searchInput.addEventListener("input", () => {
   searchQuery = searchInput.value.toLowerCase();
   currentPage = 1;
@@ -100,6 +113,6 @@ searchInput.addEventListener("input", () => {
   renderProduk();
 });
 
-// init
+// 🔹 Init pertama
 applyFilters();
 renderProduk();
