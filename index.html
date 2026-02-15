@@ -1,127 +1,163 @@
 <!doctype html>
-<html>
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Tailwind -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- Flowbite -->
+    <title>Bakerins | Jajanan Segar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
-    <!-- AOS Animate On Scroll -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <style>
+      body { font-family: 'Fredoka', sans-serif; }
+      .blob-shape { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+    </style>
   </head>
 
-  <body class="bg-gray-50 text-gray-800">
+  <body class="bg-yellow-50 text-gray-800 selection:bg-pink-300">
+      <a href="produk.html" class="text-pink-500 border-b-2 border-pink-500 pb-1">Jajan</a>
 
-<!-- Navbar -->
-<header class="bg-white shadow-md fixed w-full z-10" data-aos="fade-down">
-  <div class="container mx-auto flex items-center justify-between p-4">
-    <h1 class="text-2xl font-bold text-sky-700" data-aos="zoom-in" data-aos-delay="200">
-      Bakerins
-    </h1>
-    <nav class="space-x-6" data-aos="fade-left" data-aos-delay="400">
-      <a href="index.html" class="hover:text-sky-600 font-bold">Home</a>
-      <a href="produk.html" class="hover:text-sky-600">Produk</a>
-      <a href="about.html" class="hover:text-sky-600">About</a>
+<header class="bg-white/90 backdrop-blur-md shadow-sm fixed w-full z-50 top-0 border-b-4 border-pink-400 transition-all duration-300">
+  <div class="container mx-auto flex items-center justify-between px-6 py-4">
+    
+    <a href="index.html" class="group flex-shrink-0">
+        <h1 class="text-3xl font-bold text-pink-500 tracking-wide group-hover:scale-105 transition transform origin-left">
+            🍭 Bakerins
+        </h1>
+    </a>
+
+    <nav class="hidden md:flex space-x-10 text-lg font-medium">
+      <a href="index.html" class="text-pink-500 border-b-2 border-pink-500 pb-1">Home</a>
+      <a href="produk.html" class="text-gray-600 border-b-2 border-transparent pb-1 hover:text-pink-500 transition">Jajan</a>
+      <a href="about.html" class="text-gray-600 border-b-2 border-transparent pb-1 hover:text-pink-500 transition">Kontak</a>
     </nav>
+
+    <div class="md:hidden">
+        <button id="hamburger-btn" class="text-pink-500 focus:outline-none p-2 rounded-md hover:bg-pink-50 transition">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+    </div>
+
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-pink-100 absolute w-full left-0 shadow-xl">
+    <div class="flex flex-col p-4 space-y-2 text-lg font-medium">
+      
+      <a href="index.html" class="block px-4 py-3 bg-pink-50 text-pink-500 rounded-xl font-bold">Home</a>
+      
+      <a href="produk.html" class="block px-4 py-3 text-gray-600 hover:bg-pink-50 hover:text-pink-500 rounded-xl transition">Jajan</a>
+      <a href="about.html" class="block px-4 py-3 text-gray-600 hover:bg-pink-50 hover:text-pink-500 rounded-xl transition">Kontak</a>
+    </div>
   </div>
 </header>
 
-<!-- Hero Section -->
 <section 
-  class="h-screen flex flex-col items-center justify-center text-center bg-cover bg-center"
-  style="background-image: url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1600&q=80');"
+  class="min-h-screen flex flex-col items-center justify-center text-center relative overflow-hidden"
   data-aos="fade-in"
 >
-  <div class="bg-black/50 p-8 rounded-xl" data-aos="zoom-in">
-    <h2 class="text-4xl md:text-6xl font-extrabold text-white mb-4">Authentic Taste</h2>
-    <p class="text-xl text-white mb-6">In Every Bite</p>
-    <a href="#produk" class="px-6 py-3 bg-sky-500 text-white rounded-lg shadow hover:bg-sky-600 transition">Lihat Produk</a>
-  </div>
-</section>
-
-<!-- Produk Section -->
-<section id="produk" class="py-16 container mx-auto px-4 md:px-0" data-aos="fade-up">
-  <h3 class="text-3xl font-bold text-center mb-6" data-aos="fade-down" data-aos-duration="800">Produk Unggulan.</h3>
+  <div class="absolute inset-0 z-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
   
-  <!-- Search + Category -->
-  <div class="flex flex-col md:flex-row items-center justify-between mb-8 gap-4 md:gap-6 px-2 sm:px-4" data-aos="fade-up" data-aos-delay="100">
-    <!-- Search -->
-    <input id="searchInput" type="text" placeholder="Cari produk..." 
-      class="w-full md:w-1/3 px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-sky-300">
-
-    <!-- Category -->
-    <div class="flex flex-wrap justify-center gap-3" data-aos="zoom-in" data-aos-delay="200">
-      <button class="filter-btn px-4 py-2 bg-sky-500 text-white rounded-lg hover:bg-sky-600" data-category="all">All</button>
-      <button class="filter-btn px-4 py-2 bg-gray-200 rounded-lg hover:bg-sky-500 hover:text-white" data-category="bolu">Bolu</button>
-      <button class="filter-btn px-4 py-2 bg-gray-200 rounded-lg hover:bg-sky-500 hover:text-white" data-category="es">Es</button>
-      <button class="filter-btn px-4 py-2 bg-gray-200 rounded-lg hover:bg-sky-500 hover:text-white" data-category="dessert">Dessert</button>
-      <button class="filter-btn px-4 py-2 bg-gray-200 rounded-lg hover:bg-sky-500 hover:text-white" data-category="snack">Snack</button>
-    </div>
-  </div>
-
-  <!-- Produk Grid -->
-  <div id="produkGrid" class="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+  <div class="container mx-auto px-6 z-10 flex flex-col md:flex-row items-center gap-8 mt-16">
     
-    <!-- Card 1 -->
-    <div class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition" 
-         data-category="bolu" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
-      <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" alt="bolu" class="rounded-lg mb-4 w-full h-56 object-cover">
-      <h4 class="nama-produk text-xl font-semibold">Bolu Pisang</h4>
-      <p class="text-gray-600 mb-2">Lezat, lembut, dan autentik.</p>
-      <span class="font-bold text-sky-700">Rp50.000</span>
+    <div class="w-full md:w-1/2 text-center md:text-left" data-aos="fade-right">
+        <span class="inline-block px-4 py-2 bg-yellow-300 text-yellow-800 rounded-full text-sm font-bold mb-4 shadow-sm">
+            ✨ Jajanan Murah & Enak
+        </span>
+        <h2 class="text-5xl md:text-7xl font-bold text-gray-800 leading-tight mb-4">
+            Nyegerin <span class="text-pink-500">Harimu</span> Disini!
+        </h2>
+        <p class="text-xl text-gray-600 mb-8 font-medium">
+            Sedia Es Lilin, Kue Basah, dan Snack kriuk. Harga mulai seribuan aja lho!
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <a href="produk.html" class="px-8 py-4 bg-pink-500 text-white text-xl font-bold rounded-2xl shadow-lg hover:bg-pink-600 hover:shadow-xl hover:-translate-y-1 transition transform">
+                Mau Jajan! 🍦
+            </a>
+            <a href="about.html" class="px-8 py-4 bg-white text-pink-500 border-2 border-pink-500 text-xl font-bold rounded-2xl shadow-sm hover:bg-pink-50 transition">
+                Lokasi Kami 📍
+            </a>
+        </div>
     </div>
 
-    <!-- Card 2 -->
-    <div class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition" 
-         data-category="es" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-      <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" alt="es" class="rounded-lg mb-4 w-full h-56 object-cover">
-      <h4 class="nama-produk text-xl font-semibold">Es Duren</h4>
-      <p class="text-gray-600 mb-2">Roti hangat setiap pagi.</p>
-      <span class="font-bold text-sky-700">Rp20.000</span>
+    <div class="w-full md:w-1/2" data-aos="zoom-in" data-aos-delay="200">
+        <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?q=80&w=1000&auto=format&fit=crop" 
+             alt="Es Krim Segar" 
+             class="w-full max-w-md mx-auto rounded-3xl shadow-2xl rotate-3 border-8 border-white">
     </div>
-
-    <!-- Card 3 -->
-    <div class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition" 
-         data-category="dessert" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
-      <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" alt="dessert" class="rounded-lg mb-4 w-full h-56 object-cover">
-      <h4 class="nama-produk text-xl font-semibold">Butter Croissant</h4>
-      <p class="text-gray-600 mb-2">Renyaaan dan buttery.</p>
-      <span class="font-bold text-sky-700">Rp25.000</span>
-    </div>
-
-    <!-- Card 4 -->
-    <div class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition" 
-         data-category="snack" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
-      <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" alt="snack" class="rounded-lg mb-4 w-full h-56 object-cover">
-      <h4 class="nama-produk text-xl font-semibold">A</h4>
-      <p class="text-gray-600 mb-2">Renyaaan dan buttery.</p>
-      <span class="font-bold text-sky-700">Rp25.000</span>
-    </div>
-
   </div>
 </section>
 
-<!-- About Section -->
-<section id="about" class="py-16 bg-sky-50" data-aos="fade-up">
-  <div class="container mx-auto text-center max-w-2xl px-4 md:px-0" data-aos="zoom-in">
-    <h3 class="text-3xl font-bold mb-6 text-sky-700">Tentang Bakerins</h3>
-    <p class="text-gray-700">
-      Bakerins hadir untuk memberikan pengalaman rasa autentik dalam setiap gigitan. 
-      Dengan bahan berkualitas dan resep rahasia, kami berkomitmen memberikan yang terbaik untuk Anda.
-    </p>
+<section id="produk" class="py-20 bg-white rounded-t-[3rem] shadow-inner relative z-10" data-aos="fade-up">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12" data-aos="fade-down">
+        <h3 class="text-4xl font-bold text-gray-800 mb-2">Menu Favorit 🌟</h3>
+        <p class="text-gray-500">Intip dulu jajanan yang paling laris manis.</p>
+    </div>
+  
+    <div class="flex flex-wrap justify-center gap-4 mb-10" data-aos="zoom-in">
+        <div class="bg-blue-100 text-blue-600 px-6 py-3 rounded-xl font-bold flex items-center gap-2">
+            🧊 Aneka Es
+        </div>
+        <div class="bg-yellow-100 text-yellow-700 px-6 py-3 rounded-xl font-bold flex items-center gap-2">
+            🍰 Kue Basah
+        </div>
+        <div class="bg-red-100 text-red-600 px-6 py-3 rounded-xl font-bold flex items-center gap-2">
+            🍿 Snack
+        </div>
+    </div>
+
+    <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div class="bg-yellow-50 rounded-2xl p-4 shadow hover:shadow-lg transition cursor-pointer border border-yellow-100 hover:border-yellow-300">
+            <div class="h-48 bg-gray-200 rounded-xl mb-4 overflow-hidden relative">
+                 <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=500&q=60" class="w-full h-full object-cover hover:scale-110 transition duration-500">
+                 <span class="absolute top-2 right-2 bg-white px-2 py-1 rounded-lg text-xs font-bold shadow">Rp 1.000</span>
+            </div>
+            <h4 class="text-xl font-bold text-gray-800">Es Mambo Buah</h4>
+            <p class="text-gray-500 text-sm">Seger banget pas panas!</p>
+        </div>
+         <div class="bg-pink-50 rounded-2xl p-4 shadow hover:shadow-lg transition cursor-pointer border border-pink-100 hover:border-pink-300">
+            <div class="h-48 bg-gray-200 rounded-xl mb-4 overflow-hidden relative">
+                 <img src="https://images.unsplash.com/photo-1559598467-f8b76c8155d0?auto=format&fit=crop&w=500&q=60" class="w-full h-full object-cover hover:scale-110 transition duration-500">
+                 <span class="absolute top-2 right-2 bg-white px-2 py-1 rounded-lg text-xs font-bold shadow">Rp 2.000</span>
+            </div>
+            <h4 class="text-xl font-bold text-gray-800">Bolu Kukus</h4>
+            <p class="text-gray-500 text-sm">Lembut dan manis.</p>
+        </div>
+         <div class="flex flex-col justify-center items-center bg-gray-50 rounded-2xl p-4 border-2 border-dashed border-gray-300 hover:bg-gray-100 transition">
+             <h4 class="text-lg font-bold text-gray-500 mb-2">Lihat Semua Menu</h4>
+             <a href="produk.html" class="w-12 h-12 flex items-center justify-center bg-pink-500 text-white rounded-full shadow hover:bg-pink-600 transition">
+                 ➜
+             </a>
+         </div>
+    </div>
   </div>
 </section>
 
-<!-- Footer -->
-<footer class="bg-sky-700 text-white py-6 text-center">
-  <p>&copy; 2025 Bakerins. All Rights Reserved.</p>
+<footer class="bg-pink-500 text-white py-8 text-center mt-auto">
+  <div class="container mx-auto px-4">
+      <h2 class="text-2xl font-bold mb-2">Bakerins</h2>
+      <p class="opacity-90 mb-4">Jajanan murah, rasa mewah!</p>
+      <p class="text-sm opacity-75">&copy; 2025 Bakerins. Dibuat dengan ❤️.</p>
+  </div>
 </footer>
 
-<script src="js/main.js"></script>
+<script src="js/aos-index.js"></script> 
+<script>
+  AOS.init();
+</script>
 
-<script src="js/aos-index.js"></script>
+<script>
+  const btn = document.getElementById('hamburger-btn');
+  const menu = document.getElementById('mobile-menu');
+
+  btn.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
+</script>
 
   </body>
 </html>
