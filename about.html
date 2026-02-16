@@ -1,144 +1,245 @@
-
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bakerins | About</title>
+    <title>Bakerins | Lokasi & Kontak</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <style>
+      body {
+        font-family: "Fredoka", sans-serif;
+      }
+    </style>
   </head>
-  <body class="bg-gray-50 text-gray-800">
-    <!-- Navbar -->
-    <header class="bg-white shadow-md fixed w-full z-10">
-      <div class="container mx-auto flex items-center justify-between p-4">
-        <h1 class="text-2xl font-bold text-amber-700">Bakerins</h1>
-        <nav class="space-x-6">
-          <a href="index.html" class="hover:text-amber-600">Home</a>
-          <a href="produk.html" class="hover:text-amber-600">Produk</a>
-          <a href="about.html" class="text-black font-bold">About</a>
+
+  <body class="bg-yellow-50 text-gray-800 selection:bg-pink-300">
+    <header
+      class="bg-white/90 backdrop-blur-md shadow-sm fixed w-full z-50 top-0 border-b-4 border-pink-400 transition-all duration-300"
+    >
+      <div
+        class="container mx-auto flex items-center justify-between px-6 py-4"
+      >
+        <a href="index.html" class="group flex-shrink-0">
+          <h1
+            class="text-3xl font-bold text-pink-500 tracking-wide group-hover:scale-105 transition transform origin-left"
+          >
+            🍭 Bakerins
+          </h1>
+        </a>
+
+        <nav class="hidden md:flex space-x-10 text-lg font-medium">
+          <a
+            href="index.html"
+            class="text-gray-600 border-b-2 border-transparent pb-1 hover:text-pink-500 transition"
+            >Home</a
+          >
+          <a
+            href="produk.html"
+            class="text-gray-600 border-b-2 border-transparent pb-1 hover:text-pink-500 transition"
+            >Jajan</a
+          >
+
+          <a
+            href="about.html"
+            class="text-pink-500 border-b-2 border-pink-500 pb-1"
+            >Kontak</a
+          >
         </nav>
+
+        <div class="md:hidden">
+          <button
+            id="hamburger-btn"
+            class="text-pink-500 focus:outline-none p-2 rounded-md hover:bg-pink-50 transition"
+          >
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white border-t border-pink-100 absolute w-full left-0 shadow-xl"
+      >
+        <div class="flex flex-col p-4 space-y-2 text-lg font-medium">
+          <a
+            href="index.html"
+            class="block px-4 py-3 text-gray-600 hover:bg-pink-50 hover:text-pink-500 rounded-xl transition"
+            >Home</a
+          >
+          <a
+            href="produk.html"
+            class="block px-4 py-3 text-gray-600 hover:bg-pink-50 hover:text-pink-500 rounded-xl transition"
+            >Jajan</a
+          >
+
+          <a
+            href="about.html"
+            class="block px-4 py-3 bg-pink-50 text-pink-500 rounded-xl font-bold"
+            >Kontak</a
+          >
+        </div>
       </div>
     </header>
 
-    <!-- About / Contact Section -->
-    <section class="pt-28 pb-16 container mx-auto max-w-4xl px-4">
-      <h2 class="text-4xl font-bold text-center mb-10">Kontak Bakerins</h2>
-
-      <div class="grid md:grid-cols-2 gap-8">
-        <!-- Info Kontak -->
-        <div class="bg-white shadow rounded-xl p-6">
-          <h3 class="text-2xl font-semibold mb-4 text-center md:text-left">
-            Hubungi Kami
-          </h3>
-          <p class="text-gray-700 mb-6 text-center md:text-left">
-            Untuk pemesanan atau pertanyaan, silakan hubungi kami:
+    <section class="pt-32 pb-20 px-6 min-h-screen flex flex-col justify-center">
+      <div class="container mx-auto max-w-5xl" data-aos="fade-up">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold text-gray-800 mb-4">Yuk Mampir! 👋</h2>
+          <p class="text-gray-600 text-lg">
+            Jangan malu-malu, hubungi kami kalau mau pesan banyak.
           </p>
+        </div>
 
-          <div class="space-y-4">
-            <!-- WhatsApp -->
+        <div class="grid md:grid-cols-2 gap-8 items-start">
+          <div class="space-y-6">
             <a
               href="https://wa.me/6282115842517"
               target="_blank"
-              class="flex items-center justify-center md:justify-start gap-3 p-3 rounded-lg hover:bg-green-50"
+              class="flex items-center p-6 bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition group"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                x="0px"
-                y="0px"
-                width="100"
-                height="100"
-                viewBox="0 0 48 48"
-                class="w-7 h-7 text-black"
+              <div
+                class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-500 mr-5 group-hover:scale-110 transition"
               >
-                <path
-                  fill="#fff"
-                  d="M4.9,43.3l2.7-9.8C5.9,30.6,5,27.3,5,24C5,13.5,13.5,5,24,5c5.1,0,9.8,2,13.4,5.6	C41,14.2,43,18.9,43,24c0,10.5-8.5,19-19,19c0,0,0,0,0,0h0c-3.2,0-6.3-0.8-9.1-2.3L4.9,43.3z"
-                ></path>
-                <path
-                  fill="#fff"
-                  d="M4.9,43.8c-0.1,0-0.3-0.1-0.4-0.1c-0.1-0.1-0.2-0.3-0.1-0.5L7,33.5c-1.6-2.9-2.5-6.2-2.5-9.6	C4.5,13.2,13.3,4.5,24,4.5c5.2,0,10.1,2,13.8,5.7c3.7,3.7,5.7,8.6,5.7,13.8c0,10.7-8.7,19.5-19.5,19.5c-3.2,0-6.3-0.8-9.1-2.3	L5,43.8C5,43.8,4.9,43.8,4.9,43.8z"
-                ></path>
-                <path
-                  fill="#cfd8dc"
-                  d="M24,5c5.1,0,9.8,2,13.4,5.6C41,14.2,43,18.9,43,24c0,10.5-8.5,19-19,19h0c-3.2,0-6.3-0.8-9.1-2.3	L4.9,43.3l2.7-9.8C5.9,30.6,5,27.3,5,24C5,13.5,13.5,5,24,5 M24,43L24,43L24,43 M24,43L24,43L24,43 M24,4L24,4C13,4,4,13,4,24	c0,3.4,0.8,6.7,2.5,9.6L3.9,43c-0.1,0.3,0,0.7,0.3,1c0.2,0.2,0.4,0.3,0.7,0.3c0.1,0,0.2,0,0.3,0l9.7-2.5c2.8,1.5,6,2.2,9.2,2.2	c11,0,20-9,20-20c0-5.3-2.1-10.4-5.8-14.1C34.4,6.1,29.4,4,24,4L24,4z"
-                ></path>
-                <path
-                  fill="#40c351"
-                  d="M35.2,12.8c-3-3-6.9-4.6-11.2-4.6C15.3,8.2,8.2,15.3,8.2,24c0,3,0.8,5.9,2.4,8.4L11,33l-1.6,5.8	l6-1.6l0.6,0.3c2.4,1.4,5.2,2.2,8,2.2h0c8.7,0,15.8-7.1,15.8-15.8C39.8,19.8,38.2,15.8,35.2,12.8z"
-                ></path>
-                <path
-                  fill="#fff"
-                  fill-rule="evenodd"
-                  d="M19.3,16c-0.4-0.8-0.7-0.8-1.1-0.8c-0.3,0-0.6,0-0.9,0	s-0.8,0.1-1.3,0.6c-0.4,0.5-1.7,1.6-1.7,4s1.7,4.6,1.9,4.9s3.3,5.3,8.1,7.2c4,1.6,4.8,1.3,5.7,1.2c0.9-0.1,2.8-1.1,3.2-2.3	c0.4-1.1,0.4-2.1,0.3-2.3c-0.1-0.2-0.4-0.3-0.9-0.6s-2.8-1.4-3.2-1.5c-0.4-0.2-0.8-0.2-1.1,0.2c-0.3,0.5-1.2,1.5-1.5,1.9	c-0.3,0.3-0.6,0.4-1,0.1c-0.5-0.2-2-0.7-3.8-2.4c-1.4-1.3-2.4-2.8-2.6-3.3c-0.3-0.5,0-0.7,0.2-1c0.2-0.2,0.5-0.6,0.7-0.8	c0.2-0.3,0.3-0.5,0.5-0.8c0.2-0.3,0.1-0.6,0-0.8C20.6,19.3,19.7,17,19.3,16z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-              <span class="text-green-600 font-medium">+62 821-1584-2517</span>
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.463 1.065 2.876 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <h3
+                  class="font-bold text-lg text-gray-800 group-hover:text-green-600 transition"
+                >
+                  WhatsApp
+                </h3>
+                <p class="text-green-600 font-medium">+62 821-1584-2517</p>
+              </div>
             </a>
 
-            <!-- Instagram -->
             <a
               href="https://instagram.com/bakerins_"
               target="_blank"
-              class="flex items-center justify-center md:justify-start gap-3 p-3 rounded-lg hover:bg-pink-50"
+              class="flex items-center p-6 bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition group"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                class="w-6 h-6 text-pink-600"
-                viewBox="0 0 24 24"
+              <div
+                class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center text-pink-500 mr-5 group-hover:scale-110 transition"
               >
-                <path
-                  d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7Zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10Zm-5 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm4.8-.9a1.1 1.1 0 1 0 0-2.2 1.1 1.1 0 0 0 0 2.2Z"
-                />
-              </svg>
-              <span class="text-pink-600 font-medium">@bakerins</span>
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <h3
+                  class="font-bold text-lg text-gray-800 group-hover:text-pink-500 transition"
+                >
+                  Instagram
+                </h3>
+                <p class="text-pink-500 font-medium">@bakerins_</p>
+              </div>
             </a>
 
-            <!-- Lokasi -->
             <a
-              href="https://maps.app.goo.gl/dFof7MkXmQCuc2LE8"
+              href="https://maps.google.com/?q=Jl.+Sapan+Melati+IV+no.+124,+Ciparay,+Kab.+Bandung"
               target="_blank"
-              class="flex items-center justify-center md:justify-start gap-3 p-3 rounded-lg hover:bg-red-50"
+              class="flex items-center p-6 bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition group"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                class="w-6 h-6 text-red-600"
-                viewBox="0 0 24 24"
+              <div
+                class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-red-500 mr-5 group-hover:scale-110 transition"
               >
-                <path
-                  d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5S13.4 11.5 12 11.5z"
-                />
-              </svg>
-              <span class="text-red-600 font-medium"
-                >Jl. Sapan Melati IV no. 124,Ciparay, Kabupaten Bandung.</span
-              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                  ></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                  ></path>
+                </svg>
+              </div>
+              <div>
+                <h3
+                  class="font-bold text-lg text-gray-800 group-hover:text-red-500 transition"
+                >
+                  Alamat Warung
+                </h3>
+                <p class="text-gray-500 text-sm md:text-base leading-relaxed">
+                  Jl. Sapan Melati IV no. 124, Ciparay, Kab. Bandung.
+                </p>
+              </div>
             </a>
           </div>
-        </div>
 
-        <!-- Maps -->
-        <div class="bg-white shadow rounded-xl overflow-hidden">
-          <h3 class="text-2xl font-semibold mb-4 p-4 text-center md:text-left">
-            Lokasi Kami
-          </h3>
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3960.1463672661316!2d107.705221!3d-6.992036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwNTknMzEuMyJTIDEwN8KwNDInMTguOCJF!5e0!3m2!1sid!2sid!4v1756181670509!5m2!1sid!2sid"
-            width="600"
-            height="450"
-            style="border: 0"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
+          <div
+            class="bg-white p-2 rounded-2xl shadow-sm border border-gray-100 h-full min-h-[300px]"
+          >
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.307454332908!2d107.7269176749964!3d-6.973007693027896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68c179c3d9a3bd%3A0x6b8f1c5f3b6c2b0!2sJl.%20Sapan%20Melati%20IV%20No.124%2C%20Ciparay%2C%20Kec.%20Ciparay%2C%20Kabupaten%20Bandung%2C%20Jawa%20Barat%2040381!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid"
+              width="100%"
+              height="100%"
+              style="border: 0; border-radius: 12px; min-height: 350px"
+              allowfullscreen=""
+              loading="lazy"
+            >
+            </iframe>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-amber-700 text-white py-6 text-center">
-      <p>&copy; 2025 Bakerins. All Rights Reserved.</p>
+    <footer class="bg-pink-500 text-white py-8 text-center mt-auto">
+      <div class="container mx-auto px-4">
+        <h2 class="text-2xl font-bold mb-2">Bakerins</h2>
+        <p class="opacity-90 mb-4">Jajanan murah, rasa mewah!</p>
+        <p class="text-sm opacity-75">
+          &copy; 2025 Bakerins. Dibuat dengan ❤️.
+        </p>
+      </div>
     </footer>
+
+    <script>
+      AOS.init();
+
+      const btn = document.getElementById("hamburger-btn");
+      const menu = document.getElementById("mobile-menu");
+
+      btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
+    </script>
   </body>
 </html>
