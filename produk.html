@@ -1,390 +1,287 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="id" class="overflow-y-scroll overflow-x-hidden scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bakerins | Produk</title>
+    <title>Bakerins | Pilih Jajanan</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <style>
+      body {
+        font-family: "Fredoka", sans-serif;
+      }
+    </style>
   </head>
-  <body class="bg-gray-50 text-gray-800">
-    <!-- Navbar -->
-    <header class="bg-white shadow-md fixed w-full z-10" data-aos="fade-down">
-      <div class="container mx-auto flex items-center justify-between p-4">
-        <h1
-          class="text-2xl font-bold text-sky-700"
-          data-aos="zoom-in"
-          data-aos-delay="200"
-        >
-          Bakerins
-        </h1>
-        <nav class="space-x-6" data-aos="fade-left" data-aos-delay="400">
-          <a href="index.html" class="hover:text-sky-600">Home</a>
-          <a href="produk.html" class="hover:text-sky-600 font-bold">Produk</a>
-          <a href="about.html" class="hover:text-sky-600">About</a>
-        </nav>
-      </div>
-    </header>
-
-    <!-- Produk Section -->
-    <section
-      id="produk"
-      class="pt-28 pb-16 container mx-auto px-4 md:px-0"
-      data-aos="fade-up"
+  <body class="bg-yellow-50 text-gray-800">
+    <header
+      class="bg-white/90 backdrop-blur-md shadow-sm fixed w-full z-50 top-0 border-b-4 border-pink-400 transition-all duration-300"
     >
-      <h3
-        class="text-3xl font-bold text-center mb-8"
-        data-aos="fade-down"
-        data-aos-duration="800"
-      >
-        Produk
-      </h3>
-
-      <!-- Search + Category -->
       <div
-        class="flex flex-col md:flex-row items-center justify-between mb-10 gap-4 px-2 sm:px-4"
-        data-aos="fade-up"
-        data-aos-delay="100"
+        class="container mx-auto flex items-center justify-between px-6 py-4"
       >
-        <!-- Search -->
-        <input
-          id="searchInput"
-          type="text"
-          placeholder="Cari produk..."
-          class="w-full md:w-1/3 px-4 py-2 border border-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400"
-        />
+        <a href="index.html" class="group flex-shrink-0">
+          <h1
+            class="text-3xl font-bold text-pink-500 tracking-wide group-hover:scale-105 transition transform origin-left"
+          >
+            🍭 Bakerins
+          </h1>
+        </a>
 
-        <!-- Category -->
-        <div class="flex gap-3" data-aos="zoom-in" data-aos-delay="200">
-          <button
-            class="filter-btn px-4 py-2 bg-sky-600 text-white rounded-lg hover:bg-sky-700"
-            data-category="all"
+        <nav class="hidden md:flex space-x-10 text-lg font-medium">
+          <a
+            href="index.html"
+            class="text-gray-600 border-b-2 border-transparent pb-1 hover:text-pink-500 transition"
+            >Home</a
           >
-            All
-          </button>
-          <button
-            class="filter-btn px-4 py-2 bg-gray-200 rounded-lg hover:bg-sky-600 hover:text-white"
-            data-category="es"
+          <a
+            href="produk.html"
+            class="text-pink-500 border-b-2 border-pink-500 pb-1"
+            >Jajan</a
           >
-            Ice
-          </button>
-          <button
-            class="filter-btn px-4 py-2 bg-gray-200 rounded-lg hover:bg-sky-600 hover:text-white"
-            data-category="cake"
+          <a
+            href="about.html"
+            class="text-gray-600 border-b-2 border-transparent pb-1 hover:text-pink-500 transition"
+            >Kontak</a
           >
-            Cake
-          </button>
+        </nav>
+
+        <div class="md:hidden">
           <button
-            class="filter-btn px-4 py-2 bg-gray-200 rounded-lg hover:bg-sky-600 hover:text-white"
-            data-category="bread"
+            id="hamburger-btn"
+            class="text-pink-500 focus:outline-none p-2 rounded-md hover:bg-pink-50 transition"
           >
-            Kue Basah
-          </button>
-          <button
-            class="filter-btn px-4 py-2 bg-gray-200 rounded-lg hover:bg-sky-600 hover:text-white"
-            data-category="croissant"
-          >
-            Snack
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
           </button>
         </div>
       </div>
 
-      <script>
-        const buttons = document.querySelectorAll(".filter-btn");
-
-        buttons.forEach((button) => {
-          button.addEventListener("click", () => {
-            // Hapus status aktif dari semua tombol
-            buttons.forEach((btn) => {
-              btn.classList.remove("bg-sky-600", "text-white");
-              btn.classList.add("bg-gray-200");
-            });
-
-            // Tambahkan status aktif ke tombol yang diklik
-            button.classList.remove("bg-gray-200");
-            button.classList.add("bg-sky-600", "text-white");
-          });
-        });
-      </script>
-
-      <!-- Daftar Produk -->
-      <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-        <!-- Produk 1 -->
-        <!-- Es Jeruk -->
-        <a href="detail-produk.html?produk=Es%20Jeruk" class="block">
-          <div
-            class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition"
-            data-category="es"
-            data-aos="fade-up"
-            data-aos-delay="100"
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white border-t border-pink-100 absolute w-full left-0 shadow-xl"
+      >
+        <div class="flex flex-col p-4 space-y-2 text-lg font-medium">
+          <a
+            href="index.html"
+            class="block px-4 py-3 text-gray-600 hover:bg-pink-50 hover:text-pink-500 rounded-xl transition"
+            >Home</a
           >
-            <img
-              src="img/jeruk.jpg"
-              alt="Es Jeruk"
-              class="w-full h-64 object-cover rounded-xl mb-4"
+
+          <a
+            href="produk.html"
+            class="block px-4 py-3 bg-pink-50 text-pink-500 rounded-xl font-bold"
+            >Jajan</a
+          >
+
+          <a
+            href="about.html"
+            class="block px-4 py-3 text-gray-600 hover:bg-pink-50 hover:text-pink-500 rounded-xl transition"
+            >Kontak</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <section
+      id="produk"
+      class="pt-32 pb-16 container mx-auto px-4 md:px-8 min-h-screen"
+    >
+      <div class="text-center mb-10" data-aos="fade-down">
+        <h3 class="text-4xl font-bold text-gray-800 mb-2">Mau Jajan Apa? 😋</h3>
+        <p class="text-gray-600">Pilih sesukamu, harga kantong pelajar!</p>
+      </div>
+
+      <div
+        class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 mb-10"
+        data-aos="fade-up"
+      >
+        <div
+          class="flex flex-col md:flex-row items-center justify-between gap-6"
+        >
+          <div class="w-full md:w-1/3 relative">
+            <input
+              id="searchInput"
+              type="text"
+              placeholder="Cari: Es Jeruk..."
+              class="w-full pl-10 pr-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-2xl focus:outline-none focus:border-pink-400 focus:bg-white transition"
             />
-            <h4 class="text-xl font-semibold nama-produk">Es Jeruk</h4>
-            <p class="text-gray-600 mb-2">Lezat, lembut, dan autentik.</p>
-            <span class="font-bold text-sky-700">Rp 1.000</span>
+            <span class="absolute left-3 top-3.5 text-gray-400">🔍</span>
+          </div>
+
+          <div class="flex flex-wrap justify-center gap-2">
+            <button
+              class="filter-btn px-5 py-2 rounded-full font-bold transition transform hover:scale-105 bg-pink-500 text-white shadow-md"
+              data-category="all"
+            >
+              Semua
+            </button>
+            <button
+              class="filter-btn px-5 py-2 rounded-full font-bold transition transform hover:scale-105 bg-blue-100 text-blue-600 hover:bg-blue-200"
+              data-category="es"
+            >
+              🧊 Es Segar
+            </button>
+            <button
+              class="filter-btn px-5 py-2 rounded-full font-bold transition transform hover:scale-105 bg-yellow-100 text-yellow-700 hover:bg-yellow-200"
+              data-category="cake"
+            >
+              🍰 Kue
+            </button>
+            <button
+              class="filter-btn px-5 py-2 rounded-full font-bold transition transform hover:scale-105 bg-green-100 text-green-700 hover:bg-green-200"
+              data-category="bread"
+            >
+              🥞 Basah
+            </button>
+            <button
+              class="filter-btn px-5 py-2 rounded-full font-bold transition transform hover:scale-105 bg-red-100 text-red-600 hover:bg-red-200"
+              data-category="snack"
+            >
+              🍿 Snack
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="produkGrid"
+        class="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+      >
+        <a href="detail-produk.html?produk=Es%20Jeruk" class="group block">
+          <div
+            class="produk bg-white rounded-3xl shadow-sm hover:shadow-xl transition duration-300 p-3 border border-transparent hover:border-pink-200"
+            data-category="es"
+            data-aos="zoom-in"
+          >
+            <div class="relative overflow-hidden rounded-2xl mb-3">
+              <img
+                src="img/jeruk.jpg"
+                alt="Es Jeruk"
+                class="w-full h-56 object-cover group-hover:scale-110 transition duration-500"
+              />
+              <div
+                class="absolute bottom-2 right-2 bg-white/90 backdrop-blur px-3 py-1 rounded-lg shadow font-bold text-pink-600 text-sm"
+              >
+                Rp 1.000
+              </div>
+            </div>
+            <div class="px-2 pb-2">
+              <h4
+                class="text-xl font-bold text-gray-800 group-hover:text-pink-500 transition nama-produk"
+              >
+                Es Jeruk
+              </h4>
+              <p class="text-gray-500 text-sm mb-3">Manis asem seger!</p>
+              <button
+                class="w-full py-2 bg-yellow-300 hover:bg-yellow-400 text-yellow-900 font-bold rounded-xl transition"
+              >
+                Lihat Detail
+              </button>
+            </div>
           </div>
         </a>
 
-        <!-- Produk 2 -->
-        <!-- Es Matcha -->
-        <a href="detail-produk.html?produk=Es%20Matcha" class="block">
+        <a href="detail-produk.html?produk=Bolu%20Pisang" class="group block">
           <div
-            class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition"
-            data-category="es"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            <img
-              src="img/matcha.jpg"
-              alt="Es Matcha"
-              class="w-full h-64 object-cover rounded-xl mb-4"
-            />
-
-            <h4 class="text-xl font-semibold nama-produk">Es Matcha</h4>
-            <p class="text-gray-600 mb-2">Lezat, lembut, dan autentik.</p>
-            <span class="font-bold text-sky-700">Rp 1.000</span>
-          </div>
-        </a>
-
-        <!-- Produk 3 -->
-        <!-- Es Vanilla -->
-        <a href="detail-produk.html?produk=Es%20Vanilla" class="block">
-          <div
-            class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition"
-            data-category="es"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            <img
-              src="img/vanilla.jpg"
-              alt="Es Vanilla"
-              class="w-full h-64 object-cover rounded-xl mb-4"
-            />
-            <h4 class="text-xl font-semibold nama-produk">Es Vanilla</h4>
-            <p class="text-gray-600 mb-2">Lezat, lembut, dan autentik.</p>
-            <span class="font-bold text-sky-700">Rp50.000</span>
-          </div>
-        </a>
-
-        <!-- Produk 4 -->
-        <!-- Es Cappucino -->
-        <a href="detail-produk.html?produk=Es%20Cappucino" class="block">
-          <div
-            class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition"
-            data-category="es"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            <img
-              src="img/cappucino.jpg"
-              alt="Es Cappucino"
-              class="w-full h-64 object-cover rounded-xl mb-4"
-            />
-            <h4 class="text-xl font-semibold nama-produk">Es Cappucino</h4>
-            <p class="text-gray-600 mb-2">Lezat, lembut, dan autentik.</p>
-            <span class="font-bold text-sky-700">Rp 1.000</span>
-          </div>
-        </a>
-
-        <!-- Produk 5 -->
-        <!-- Es Choco Cream -->
-        <a href="detail-produk.html?produk=Es%20ChocoCream" class="block">
-          <div
-            class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition"
-            data-category="es"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            <img
-              src="img/choco_cream.jpg"
-              alt="Es Choco Cream"
-              class="w-full h-64 object-cover rounded-xl mb-4"
-            />
-            <h4 class="text-xl font-semibold nama-produk">Es ChocoCream</h4>
-            <p class="text-gray-600 mb-2">Lezat, lembut, dan autentik.</p>
-            <span class="font-bold text-sky-700">Rp 1.000</span>
-          </div>
-        </a>
-
-        <!-- Produk 6 -->
-        <!-- Es Alpukat-->
-        <a href="detail-produk.html?produk=Es%20Alpukat" class="block">
-          <div
-            class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition"
-            data-category="es"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            <img
-              src="img/alpukat.jpg"
-              alt="Es Alpukat"
-              class="w-full h-64 object-cover rounded-xl mb-4"
-            />
-            <h4 class="text-xl font-semibold nama-produk">Es Alpukat</h4>
-            <p class="text-gray-600 mb-2">Lezat, lembut, dan autentik.</p>
-            <span class="font-bold text-sky-700">Rp 1.000</span>
-          </div>
-        </a>
-
-        <!-- Produk 7 -->
-        <!-- Es Mangga-->
-        <a href="detail-produk.html?produk=Es%20Mangga" class="block">
-          <div
-            class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition"
-            data-category="es"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            <img
-              src="img/mangga.jpg"
-              alt="Es Mangga"
-              class="w-full h-64 object-cover rounded-xl mb-4"
-            />
-            <h4 class="text-xl font-semibold nama-produk">Es Mangga</h4>
-            <p class="text-gray-600 mb-2">Lezat, lembut, dan autentik.</p>
-            <span class="font-bold text-sky-700">Rp 1.000</span>
-          </div>
-        </a>
-
-        <!-- Produk 8 -->
-        <!-- Bubur Kacang -->
-        <a href="detail-produk.html?produk=Bubur%20Kacang" class="block">
-          <div
-            class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition"
-            data-category="es"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            <img
-              src="img/buburkacang.jpg"
-              alt="Bubur Kac\"
-              class="w-full h-64 object-cover rounded-xl mb-4"
-            />
-            <h4 class="text-xl font-semibold nama-produk">Bubur Kacang</h4>
-            <p class="text-gray-600 mb-2">Lezat, lembut, dan autentik.</p>
-            <span class="font-bold text-sky-700">Rp 1.000</span>
-          </div>
-        </a>
-
-        <!-- Produk 9 -->
-        <!-- Es Coklat -->
-        <a href="detail-produk.html?produk=Es%20Coklat" class="block">
-          <div
-            class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition"
-            data-category="es"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            <img
-              src="img/coklat.jpg"
-              alt="Es Coklat"
-              class="w-full h-64 object-cover rounded-xl mb-4"
-            />
-            <h4 class="text-xl font-semibold nama-produk">Es Coklat</h4>
-            <p class="text-gray-600 mb-2">Lezat, lembut, dan autentik.</p>
-            <span class="font-bold text-sky-700">Rp 1.000</span>
-          </div>
-        </a>
-
-        <!-- Produk 10 -->
-        <!-- Es Jambu -->
-        <a href="detail-produk.html?produk=Es%20Jambu" class="block">
-          <div
-            class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition"
-            data-category="es"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            <img
-              src="img/jambu.jpg"
-              alt="Es Jambu"
-              class="w-full h-64 object-cover rounded-xl mb-4"
-            />
-            <h4 class="text-xl font-semibold nama-produk">Es Jambu</h4>
-            <p class="text-gray-600 mb-2">Lezat, lembut, dan autentik.</p>
-            <span class="font-bold text-sky-700">Rp 1.000</span>
-          </div>
-        </a>
-
-        <!-- Produk 11 -->
-        <!-- Milo -->
-        <a href="detail-produk.html?produk=Milo" class="block">
-          <div
-            class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition"
-            data-category="es"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            <img
-              src="img/milo.jpg"
-              alt="Milo"
-              class="w-full h-64 object-cover rounded-xl mb-4"
-            />
-            <h4 class="text-xl font-semibold nama-produk">Milo</h4>
-            <p class="text-gray-600 mb-2">Lezat, lembut, dan autentik.</p>
-            <span class="font-bold text-sky-700">Rp 1.000</span>
-          </div>
-        </a>
-
-        <!-- Produk xx -->
-        <!-- Bolu Pisang -->
-        <a href="detail-produk.html?produk=Bolu%20Pisang" class="block">
-          <div
-            class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition"
+            class="produk bg-white rounded-3xl shadow-sm hover:shadow-xl transition duration-300 p-3 border border-transparent hover:border-pink-200"
             data-category="cake"
-            data-aos="fade-up"
-            data-aos-delay="100"
+            data-aos="zoom-in"
           >
-            <img
-              src="img/bolupisang.jpg"
-              alt="Bolu Pisang"
-              class="w-full h-64 object-cover rounded-xl mb-4"
-            />
-            <h4 class="text-xl font-semibold nama-produk">Bolu Pisang</h4>
-            <p class="text-gray-600 mb-2">Lezat, lembut, dan autentik.</p>
-            <span class="font-bold text-sky-700">Rp 50.000</span>
-          </div>
-        </a>
-
-        <!-- Produk xx -->
-        <!-- Bolu Brownies -->
-        <a href="detail-produk.html?produk=Brownies" class="block">
-          <div
-            class="produk bg-white rounded-xl shadow p-4 hover:shadow-lg transition"
-            data-category="cake"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            <img
-              src="img/brownies.jpg"
-              alt="Brownies"
-              class="w-full h-64 object-cover rounded-xl mb-4"
-            />
-            <h4 class="text-xl font-semibold nama-produk">Brownies</h4>
-            <p class="text-gray-600 mb-2">Lezat, lembut, dan autentik.</p>
-            <span class="font-bold text-sky-700">Rp 50.000</span>
+            <div class="relative overflow-hidden rounded-2xl mb-3">
+              <img
+                src="img/bolupisang.jpg"
+                alt="Bolu Pisang"
+                class="w-full h-56 object-cover group-hover:scale-110 transition duration-500"
+              />
+              <div
+                class="absolute bottom-2 right-2 bg-white/90 backdrop-blur px-3 py-1 rounded-lg shadow font-bold text-pink-600 text-sm"
+              >
+                Rp 50.000
+              </div>
+            </div>
+            <div class="px-2 pb-2">
+              <h4
+                class="text-xl font-bold text-gray-800 group-hover:text-pink-500 transition nama-produk"
+              >
+                Bolu Pisang
+              </h4>
+              <p class="text-gray-500 text-sm mb-3">Empuk banget.</p>
+              <button
+                class="w-full py-2 bg-yellow-300 hover:bg-yellow-400 text-yellow-900 font-bold rounded-xl transition"
+              >
+                Lihat Detail
+              </button>
+            </div>
           </div>
         </a>
       </div>
 
-      <!-- Pagination -->
-      <div id="pagination" class="flex justify-center mt-8 gap-2"></div>
+      <div id="pagination" class="flex justify-center mt-12 gap-2"></div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-sky-700 text-white py-6 text-center" data-aos="fade-up">
-      <p>&copy; 2025 Bakerins. All Rights Reserved.</p>
+    <footer
+      class="bg-pink-500 text-white py-6 text-center mt-auto"
+      data-aos="fade-up"
+    >
+      <p class="font-medium">&copy; 2025 Bakerins. Jajanan Hepi!</p>
     </footer>
 
-    <!-- Script AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/aos-produk.js"></script>
-
-    <!-- Script Filter, Search & Pagination -->
+    <script>
+      AOS.init();
+    </script>
     <script src="js/produk.js"></script>
+
+    <script>
+      const buttons = document.querySelectorAll(".filter-btn");
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          // Reset style
+          buttons.forEach((btn) => {
+            btn.classList.remove("bg-pink-500", "text-white", "shadow-md");
+            // Kembalikan warna asli berdasarkan logic manual atau biarkan class default css
+            // Disini kita pakai logic simpel remove active class
+            if (btn !== button) {
+              // Resetting specific colors is tricky without complex JS,
+              // but visually the 'active' one gets pink-500 is enough.
+              btn.classList.add("bg-gray-100", "text-gray-600");
+              btn.classList.remove(
+                "bg-blue-100",
+                "bg-yellow-100",
+                "bg-green-100",
+                "bg-red-100",
+              ); // Remove specific tints if needed for uniformity when inactive
+            }
+          });
+          // Set active style
+          button.classList.remove("bg-gray-100", "text-gray-600");
+          button.classList.add("bg-pink-500", "text-white", "shadow-md");
+        });
+      });
+    </script>
+
+    <script>
+      const btn = document.getElementById("hamburger-btn");
+      const menu = document.getElementById("mobile-menu");
+
+      btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
+    </script>
   </body>
 </html>
