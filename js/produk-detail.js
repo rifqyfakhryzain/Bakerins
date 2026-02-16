@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Update Link WhatsApp Otomatis
     const jam = new Date().getHours();
     const sapaan = jam < 11 ? "Pagi" : jam < 15 ? "Siang" : jam < 19 ? "Sore" : "Malam";
-    const pesan = `Halo kak, selamat ${sapaan}! Saya mau pesan *${product.name}* nih. Masih ada?`;
+    const pesan = `Halo! selamat ${sapaan}!, *${product.name}* ready stok ?`;
     
     // Ganti nomor WA di sini
     const noHP = "6282115842517"; 
