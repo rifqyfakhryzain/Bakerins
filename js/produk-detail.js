@@ -1,153 +1,130 @@
-// js/produk-detail.js
-
-// Data produk Lengkap
-const dataProduk = {
-  "Es Jeruk": {
-    harga: "Rp 1.000",
-    deskripsi: "Kesegaran jeruk peras asli dengan manis yang pas. Cocok banget buat ngilangin dahaga di siang bolong!",
-    gambar: "img/jeruk.jpg"
+// ==========================================
+// 1. DATA PRODUK (Harus sama dengan produk.js)
+// ==========================================
+const productsData = [
+  // Kategori: ES
+  { 
+    name: "Es Jeruk", 
+    price: "Rp 1.000", 
+    img: "img/jeruk.jpg",
+    desc: "Kesegaran jeruk peras asli dengan manis yang pas. Cocok banget buat ngilangin dahaga di siang bolong!"
   },
-  "Es Matcha": {
-    harga: "Rp 1.000",
-    deskripsi: "Nikmatnya es matcha creamy dengan aroma khas teh hijau Jepang yang menenangkan. Rasa premium harga kawan.",
-    gambar: "img/matcha.jpg"
+  { 
+    name: "Es Matcha", 
+    price: "Rp 1.000", 
+    img: "img/matcha.jpg",
+    desc: "Nikmatnya es matcha creamy dengan aroma khas teh hijau Jepang yang menenangkan."
   },
-  "Es Vanilla": {
-    harga: "Rp 1.000",
-    deskripsi: "Aroma vanilla yang lembut berpadu dengan susu creamy. Manisnya bikin mood balik lagi!",
-    gambar: "img/vanilla.jpg"
+  { 
+    name: "Es Vanilla", 
+    price: "Rp 1.000", 
+    img: "img/vanilla.jpg",
+    desc: "Aroma vanilla yang lembut berpadu dengan susu creamy. Manisnya bikin mood balik lagi!"
   },
-  "Es Cappucino": {
-    harga: "Rp 1.000",
-    deskripsi: "Kopi Cappucino yang strong tapi tetap creamy. Penambah semangat buat ngerjain tugas.",
-    gambar: "img/cappucino.jpg"
+  { 
+    name: "Es Cappucino", 
+    price: "Rp 1.000", 
+    img: "img/cappucino.jpg",
+    desc: "Kopi Cappucino yang strong tapi tetap creamy. Penambah semangat buat ngerjain tugas."
   },
-  "Es ChocoCream": {
-    harga: "Rp 1.000",
-    deskripsi: "Perpaduan coklat pekat dan krim lembut. Leleh di mulut, nyess di tenggorokan.",
-    gambar: "img/choco_cream.jpg"
+  { 
+    name: "Es ChocoCream", 
+    price: "Rp 1.000", 
+    img: "img/choco_cream.jpg",
+    desc: "Perpaduan coklat pekat dan krim lembut. Leleh di mulut, nyess di tenggorokan."
   },
-  "Es Alpukat": {
-    harga: "Rp 1.000",
-    deskripsi: "Rasa alpukat mentega yang gurih manis. Teksturnya kental dan bikin kenyang.",
-    gambar: "img/alpukat.jpg"
+  { 
+    name: "Es Alpukat", 
+    price: "Rp 1.000", 
+    img: "img/alpukat.jpg",
+    desc: "Rasa alpukat mentega yang gurih manis. Teksturnya kental dan bikin kenyang."
   },
-  "Es Mangga": {
-    harga: "Rp 1.000",
-    deskripsi: "Sensasi mangga harum manis yang tropical banget. Berasa lagi liburan di pantai.",
-    gambar: "img/mangga.jpg"
+  { 
+    name: "Es Mangga", 
+    price: "Rp 1.000", 
+    img: "img/mangga.jpg",
+    desc: "Sensasi mangga harum manis yang tropical banget. Berasa lagi liburan di pantai."
   },
-  "Bubur Kacang": {
-    harga: "Rp 1.000",
-    deskripsi: "Bubur kacang hijau legendaris yang dibekukan. Sehat, enak, dan nostalgik!",
-    gambar: "img/buburkacang.jpg"
+  { 
+    name: "Es Coklat", 
+    price: "Rp 1.000", 
+    img: "img/coklat.jpg",
+    desc: "Es coklat klasik yang nyoklat banget. Favorit sejuta umat dari masa ke masa."
   },
-  "Es Coklat": {
-    harga: "Rp 1.000",
-    deskripsi: "Es coklat klasik yang nyoklat banget. Favorit sejuta umat dari masa ke masa.",
-    gambar: "img/coklat.jpg"
+  { 
+    name: "Es Jambu", 
+    price: "Rp 1.000", 
+    img: "img/jambu.jpg",
+    desc: "Jus jambu merah asli yang kaya vitamin C. Sehat dan menyegarkan."
   },
-  "Es Jambu": {
-    harga: "Rp 1.000",
-    deskripsi: "Jus jambu merah asli yang kaya vitamin C. Sehat dan menyegarkan.",
-    gambar: "img/jambu.jpg"
+  { 
+    name: "Milo", 
+    price: "Rp 1.000", 
+    img: "img/milo.jpg",
+    desc: "Rasa Milo original yang khas malt dan coklatnya. Energi untuk aktivitasmu!"
   },
-  "Milo": {
-    harga: "Rp 1.000",
-    deskripsi: "Rasa Milo original yang khas malt dan coklatnya. Energi untuk aktivitasmu!",
-    gambar: "img/milo.jpg"
+  { 
+    name: "Bubur Kacang", 
+    price: "Rp 1.000", 
+    img: "img/buburkacang.jpg",
+    desc: "Bubur kacang hijau legendaris yang dibekukan. Sehat, enak, dan nostalgik!"
   },
-  "Bolu Pisang": {
-    harga: "Rp 50.000",
-    deskripsi: "Bolu pisang (Banana Cake) premium. Tekstur super lembut, aroma pisang alami yang wangi semerbak.",
-    gambar: "img/bolupisang.jpg"
+  
+  // Kategori: KUE
+  { 
+    name: "Bolu Pisang", 
+    price: "Rp 50.000", 
+    img: "img/bolupisang.jpg",
+    desc: "Bolu pisang (Banana Cake) premium. Tekstur super lembut, aroma pisang alami wangi semerbak."
   },
-  "Brownies": {
-    harga: "Rp 50.000",
-    deskripsi: "Brownies panggang dengan tekstur fudgy di dalam, crunchy di luar. Nyoklat abis!",
-    gambar: "img/brownies.jpg"
+  { 
+    name: "Brownies", 
+    price: "Rp 50.000", 
+    img: "img/brownies.jpg",
+    desc: "Brownies panggang dengan tekstur fudgy di dalam, crunchy di luar. Nyoklat abis!"
   }
-};
+];
 
-// Fungsi Membuat Popup Secara Otomatis (Inject HTML)
-function createPopupElement() {
-    if (!document.getElementById("popupGambar")) {
-        const popupHTML = `
-            <div id="popupGambar" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 backdrop-blur-sm transition-opacity duration-300">
-                <div class="relative max-w-4xl w-full p-4 flex justify-center">
-                    <button id="closePopup" class="absolute top-4 right-4 bg-white text-pink-500 rounded-full w-10 h-10 font-bold shadow-lg hover:bg-pink-500 hover:text-white transition">X</button>
-                    <img id="gambarPopupSrc" src="" alt="Preview" class="max-h-[85vh] rounded-2xl shadow-2xl border-4 border-white object-contain">
-                </div>
-            </div>
-        `;
-        document.body.insertAdjacentHTML('beforeend', popupHTML);
-    }
-}
-
-// Fungsi utama untuk menampilkan detail produk
-function loadDetailProduk() {
+// ==========================================
+// 2. LOGIC TAMPILKAN DETAIL
+// ==========================================
+document.addEventListener("DOMContentLoaded", () => {
+  // 1. Ambil Parameter URL (contoh: ?produk=Es%20Jeruk)
   const urlParams = new URLSearchParams(window.location.search);
-  const namaProduk = urlParams.get('produk');
+  const productName = urlParams.get('produk');
 
-  // Pastikan elemen popup tersedia
-  createPopupElement();
+  // 2. Cari Data Produk yang Sesuai
+  const product = productsData.find(p => p.name === productName);
 
-  if (namaProduk && dataProduk[namaProduk]) {
-    const produk = dataProduk[namaProduk];
+  if (product) {
+    // 3. Jika ketemu, isi ke HTML
+    document.getElementById('produkNama').textContent = product.name;
+    document.getElementById('produkHarga').textContent = product.price;
+    document.getElementById('produkDeskripsi').textContent = product.desc;
+    
+    // Handle Gambar
+    const imgEl = document.getElementById('produkGambar');
+    imgEl.src = product.img;
+    imgEl.onerror = () => { imgEl.src = 'https://placehold.co/600x600?text=No+Image'; };
 
-    // Isi Data ke Elemen HTML
-    const elNama = document.getElementById('produkNama');
-    const elHarga = document.getElementById('produkHarga');
-    const elDeskripsi = document.getElementById('produkDeskripsi');
-    const elGambar = document.getElementById('produkGambar');
-    const elWA = document.getElementById('whatsappLink');
+    // Update Link WhatsApp Otomatis
+    const jam = new Date().getHours();
+    const sapaan = jam < 11 ? "Pagi" : jam < 15 ? "Siang" : jam < 19 ? "Sore" : "Malam";
+    const pesan = `Halo kak, selamat ${sapaan}! Saya mau pesan *${product.name}* nih. Masih ada?`;
+    
+    // Ganti nomor WA di sini
+    const noHP = "6282115842517"; 
+    document.getElementById('whatsappLink').href = `https://wa.me/${noHP}?text=${encodeURIComponent(pesan)}`;
 
-    if(elNama) elNama.textContent = namaProduk;
-    if(elHarga) elHarga.textContent = produk.harga;
-    if(elDeskripsi) elDeskripsi.textContent = produk.deskripsi;
-    if(elGambar) elGambar.src = produk.gambar;
-
-    if(elWA) {
-        // Pesan WA otomatis
-        const jam = new Date().getHours();
-        const sapaan = jam < 11 ? "Pagi" : jam < 15 ? "Siang" : jam < 19 ? "Sore" : "Malam";
-        const pesan = `Halo kak, selamat ${sapaan}! Saya mau pesan *${namaProduk}* nih. Masih ada?`;
-        elWA.href = `https://wa.me/6282115842517?text=${encodeURIComponent(pesan)}`;
-    }
+    // Update Title Halaman Browser
+    document.title = `${product.name} - Bakerins`;
+  } else {
+    // 4. Jika produk tidak ditemukan (atau user buka file langsung tanpa klik)
+    document.querySelector('section').innerHTML = `
+        <div class="text-center w-full py-20">
+            <h2 class="text-4xl font-bold text-gray-300 mb-4">Produk Tidak Ditemukan 😭</h2>
+            <a href="produk.html" class="text-pink-500 font-bold underline">Kembali ke Menu</a>
+        </div>
+    `;
   }
-
-  // --- Logic Popup Gambar ---
-  const produkGambar = document.getElementById("produkGambar");
-  const popup = document.getElementById("popupGambar");
-  const gambarPopupSrc = document.getElementById("gambarPopupSrc");
-  const closeBtn = document.getElementById("closePopup");
-
-  if (produkGambar && popup && gambarPopupSrc) {
-      // Buka Popup
-      produkGambar.addEventListener("click", () => {
-        gambarPopupSrc.src = produkGambar.src;
-        popup.classList.remove("hidden");
-        popup.classList.add("flex");
-      });
-
-      // Tutup Popup (Klik Background / Tombol X)
-      const closeAction = () => {
-        popup.classList.remove("flex");
-        popup.classList.add("hidden");
-      };
-
-      popup.addEventListener("click", (e) => {
-        if (e.target === popup) closeAction();
-      });
-
-      if(closeBtn) closeBtn.addEventListener("click", closeAction);
-
-      // Tutup pakai ESC
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") closeAction();
-      });
-  }
-}
-
-// Jalankan fungsi setelah halaman siap
-document.addEventListener("DOMContentLoaded", loadDetailProduk);
+});
