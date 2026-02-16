@@ -4,107 +4,109 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Detail Produk - Bakerins</title>
-
-    <!-- Tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- Flowbite -->
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
-    <!-- AOS Animate -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <!-- Js Produk Detail -->
-     <script src="js/produk-detail.js"></script>
-
+    <style>body { font-family: 'Fredoka', sans-serif; }</style>
+    <script src="js/produk-detail.js"></script>
   </head>
 
-  <body class="bg-gray-50 text-gray-800">
-    <!-- Navbar -->
-    <header class="bg-white shadow-md fixed w-full z-10" data-aos="fade-down">
-      <div class="container mx-auto flex items-center justify-between p-4">
-        <h1
-          class="text-2xl font-bold text-sky-700"
-          data-aos="zoom-in"
-          data-aos-delay="200"
-        >
-          Bakerins
+  <body class="bg-yellow-50 text-gray-800">
+<header class="bg-white/90 backdrop-blur-md shadow-sm fixed w-full z-50 top-0 border-b-4 border-pink-400 transition-all duration-300">
+  <div class="container mx-auto flex items-center justify-between px-6 py-4">
+    
+    <a href="index.html" class="group flex-shrink-0">
+        <h1 class="text-3xl font-bold text-pink-500 tracking-wide group-hover:scale-105 transition transform origin-left">
+            🍭 Bakerins
         </h1>
-        <nav class="space-x-6" data-aos="fade-left" data-aos-delay="400">
-          <a href="index.html" class="hover:text-sky-600">Home</a>
-          <a href="produk.html" class="hover:text-sky-600 font-bold"
-            >Produk</a
-          >
-          <a href="about.html" class="hover:text-sky-600">About</a>
-        </nav>
-      </div>
-    </header>
+    </a>
 
-    <!-- Detail Produk -->
-    <section class="pt-28 pb-16 container mx-auto px-6 sm:px-8 md:px-12 lg:px-20">
-      <div class="grid md:grid-cols-2 gap-10 items-center">
-        
-        <!-- Gambar Produk -->
-        <div data-aos="zoom-in">
-          <img 
-            id="produkGambar"
-            src=""
-            alt="Gambar Produk"
-            class="rounded-xl shadow-lg w-full object-cover cursor-pointer hover:opacity-90 transition"
-          />
-        </div>
+    <nav class="hidden md:flex space-x-10 text-lg font-medium">
+      <a href="index.html" class="text-gray-600 border-b-2 border-transparent pb-1 hover:text-pink-500 transition">Home</a>
+      <a href="produk.html" class="text-pink-500 border-b-2 border-pink-500 pb-1">Jajan</a>
+      <a href="about.html" class="text-gray-600 border-b-2 border-transparent pb-1 hover:text-pink-500 transition">Kontak</a>
+    </nav>
 
-        <!-- Info Produk -->
-        <div data-aos="fade-left">
-          <h2 id="produkNama" class="text-4xl font-bold text-sky-700 mb-4"></h2>
-          <p id="produkDeskripsi" class="text-gray-700 mb-4 leading-relaxed"></p>
-          <span id="produkHarga" class="block text-2xl font-bold text-sky-600 mb-6"></span>
+    <div class="md:hidden">
+        <button id="hamburger-btn" class="text-pink-500 focus:outline-none p-2 rounded-md hover:bg-pink-50 transition">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+    </div>
 
-          <!-- Tombol Pesan -->
-          <a 
-            id="whatsappLink"
-            href="#"
-            target="_blank"
-            class="px-6 py-3 bg-sky-500 text-white rounded-lg shadow hover:bg-sky-600 transition"
-          >
-            Pesan Sekarang
-          </a>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-pink-100 absolute w-full left-0 shadow-xl">
+    <div class="flex flex-col p-4 space-y-2 text-lg font-medium">
+      <a href="index.html" class="block px-4 py-3 text-gray-600 hover:bg-pink-50 hover:text-pink-500 rounded-xl transition">Home</a>
+      
+      <a href="produk.html" class="block px-4 py-3 bg-pink-50 text-pink-500 rounded-xl font-bold">Jajan</a>
+      
+      <a href="about.html" class="block px-4 py-3 text-gray-600 hover:bg-pink-50 hover:text-pink-500 rounded-xl transition">Kontak</a>
+    </div>
+  </div>
+</header>
+
+    <section class="pt-32 pb-16 container mx-auto px-6 sm:px-8 md:px-20 min-h-screen flex items-center">
+      <div class="bg-white rounded-[2.5rem] shadow-xl p-8 md:p-12 w-full border border-pink-100">
+          
+        <a href="produk.html" class="inline-flex items-center text-gray-400 hover:text-pink-500 mb-6 font-bold transition">
+            ← Kembali ke Menu
+        </a>
+
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            
+            <div data-aos="zoom-in" class="relative group">
+            <div class="absolute inset-0 bg-yellow-200 rounded-3xl rotate-3 group-hover:rotate-6 transition duration-300"></div>
+            <img 
+                id="produkGambar"
+                src=""
+                alt="Gambar Produk"
+                class="relative rounded-3xl shadow-lg w-full max-h-[500px] object-cover border-4 border-white cursor-pointer"
+            />
+            </div>
+
+            <div data-aos="fade-left">
+                <span class="bg-blue-100 text-blue-600 px-4 py-1 rounded-full text-sm font-bold mb-4 inline-block">✨ Recommended</span>
+                <h2 id="produkNama" class="text-4xl md:text-5xl font-bold text-gray-800 mb-4 leading-tight"></h2>
+                
+                <div class="bg-yellow-50 p-4 rounded-xl border border-yellow-100 mb-6">
+                    <p id="produkDeskripsi" class="text-gray-600 text-lg leading-relaxed"></p>
+                </div>
+
+                <div class="flex items-center gap-4 mb-8">
+                    <span class="text-gray-400 text-lg">Harga:</span>
+                    <span id="produkHarga" class="text-4xl font-bold text-pink-500"></span>
+                </div>
+
+                <a 
+                    id="whatsappLink"
+                    href="#"
+                    target="_blank"
+                    class="w-full md:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-green-500 hover:bg-green-600 text-white rounded-2xl shadow-lg hover:shadow-green-200/50 hover:-translate-y-1 transition text-xl font-bold"
+                >
+                    <span>💬 Pesan via WhatsApp</span>
+                </a>
+            </div>
         </div>
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-sky-700 text-white py-6 text-center mt-10">
-      <p>&copy; 2025 Bakerins. All Rights Reserved.</p>
+    <footer class="bg-pink-500 text-white py-6 text-center mt-10">
+      <p>&copy; 2025 Bakerins. Happy Tummy!</p>
     </footer>
 
-    <!-- Popup Gambar -->
-    <div id="popupGambar" class="fixed inset-0 bg-black bg-opacity-70 hidden items-center justify-center z-50">
-      <img id="gambarPopupSrc" src="" alt="Preview Produk" class="max-h-[90vh] rounded-lg shadow-2xl border-4 border-white">
-    </div>
+    <script> AOS.init({ duration: 800, once: true }); </script>
 
-    <!-- AOS & JS Produk -->
     <script>
-      AOS.init({ duration: 1000, once: true });
-    </script>
-    <script src="js/produk-detail.js"></script>
+  const btn = document.getElementById('hamburger-btn');
+  const menu = document.getElementById('mobile-menu');
 
-      <script>
-        const buttons = document.querySelectorAll(".filter-btn");
-
-        buttons.forEach((button) => {
-          button.addEventListener("click", () => {
-            // Hapus status aktif dari semua tombol
-            buttons.forEach((btn) => {
-              btn.classList.remove("bg-sky-600", "text-white");
-              btn.classList.add("bg-gray-200");
-            });
-
-            // Tambahkan status aktif ke tombol yang diklik
-            button.classList.remove("bg-gray-200");
-            button.classList.add("bg-sky-600", "text-white");
-          });
-        });
-      </script>
-
-
+  btn.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
+</script>
   </body>
 </html>
