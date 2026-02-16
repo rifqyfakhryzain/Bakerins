@@ -1,11 +1,12 @@
-// Script Filter, Search & Pagination
+// Script Filter, Search & Pagination (Tema Bakerins Baru)
 
 const searchInput = document.getElementById("searchInput");
 const filterBtns = document.querySelectorAll(".filter-btn");
-const produkCards = Array.from(document.querySelectorAll(".produk")); // div di dalam <a>
+// Mengambil semua elemen dengan class 'produk' yang ada di dalam grid
+const produkCards = Array.from(document.querySelectorAll(".produk")); 
 const pagination = document.getElementById("pagination");
 
-const produkPerPage = 9;
+const produkPerPage = 8; // Kita ubah jadi 8 biar pas grid 4 kolom
 let currentPage = 1;
 
 // state
@@ -14,89 +15,120 @@ let searchQuery = "";
 
 // 🔹 Fungsi util: cek match kategori + search
 function isMatch(card) {
-  const matchCategory =
-    activeCategory === "all" || card.dataset.category === activeCategory;
+  const categoryMatch = activeCategory === "all" || card.dataset.category === activeCategory;
+  
+  // Ambil nama produk dari elemen h4
+  const namaElement = card.querySelector(".nama-produk");
+  const nama = namaElement ? namaElement.textContent.toLowerCase() : "";
+  const searchMatch = nama.includes(searchQuery);
 
-  const nama = card.querySelector(".nama-produk").textContent.toLowerCase();
-  const matchSearch = nama.includes(searchQuery);
-
-  return matchCategory && matchSearch;
+  return categoryMatch && searchMatch;
 }
 
 // 🔹 Terapkan filter ke setiap card → set dataset.show
 function applyFilters() {
   produkCards.forEach((card) => {
-    card.dataset.show = isMatch(card) ? "1" : "0";
+    // Cari elemen pembungkus <a> terdekat agar yang di-hide satu blok link-nya
+    const wrapper = card.closest("a"); 
+    if(wrapper) {
+        wrapper.dataset.show = isMatch(card) ? "1" : "0";
+    }
   });
 }
 
 // 🔹 Urutkan produk secara alfabet (A–Z)
-function sortByName(list) {
-  return list.sort((a, b) => {
-    const nameA = a.querySelector(".nama-produk").textContent.toLowerCase();
-    const nameB = b.querySelector(".nama-produk").textContent.toLowerCase();
-    return nameA.localeCompare(nameB);
-  });
+// Note: Kita mengurutkan wrapper <a> nya, bukan div .produk-nya saja
+function sortAndGetVisible() {
+    const wrappers = Array.from(document.querySelectorAll("#produkGrid > a"));
+    
+    // Filter hanya yang show = 1
+    const visible = wrappers.filter(el => el.dataset.show === "1");
+
+    return visible.sort((a, b) => {
+        const nameA = a.querySelector(".nama-produk").innerText.toLowerCase();
+        const nameB = b.querySelector(".nama-produk").innerText.toLowerCase();
+        return nameA.localeCompare(nameB);
+    });
 }
 
 // 🔹 Render produk sesuai halaman & filter
 function renderProduk() {
-  // filter produk yang tampil
-  const visible = sortByName(
-    Array.from(produkCards).filter((c) => c.dataset.show === "1")
-  );
+  // Ambil list wrapper <a> yang visible
+  const visibleWrappers = sortAndGetVisible();
+  const allWrappers = document.querySelectorAll("#produkGrid > a");
 
-  // sembunyikan semuanya dulu
-  produkCards.forEach((card) => {
-    const wrapper = card.closest("a");
-    if (wrapper) wrapper.style.display = "none";
+  // Sembunyikan SEMUA dulu
+  allWrappers.forEach((el) => {
+    el.style.display = "none";
   });
 
-  // hitung paging
+  // Hitung paging
   const start = (currentPage - 1) * produkPerPage;
   const end = start + produkPerPage;
 
-  // tampilkan yang sesuai halaman
-  visible.slice(start, end).forEach((card) => {
-    const wrapper = card.closest("a");
-    if (wrapper) wrapper.style.display = "block";
+  // Tampilkan hanya yang masuk range halaman ini
+  visibleWrappers.slice(start, end).forEach((el) => {
+    el.style.display = "block"; // Atau 'block' tergantung layout, grid item biasanya block
+    // Tambahkan animasi fade-in
+    el.classList.add("aos-animate"); 
   });
 
-  renderPagination(visible.length);
-
-  // 🔹 scroll ke atas saat render (misal pindah halaman)
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  renderPagination(visibleWrappers.length);
 }
 
-// 🔹 Render tombol pagination
+// 🔹 Render tombol pagination (Desain Pink)
 function renderPagination(totalVisible) {
   const totalPages = Math.max(1, Math.ceil(totalVisible / produkPerPage));
   if (currentPage > totalPages) currentPage = 1;
 
   pagination.innerHTML = "";
+  
+  // Jika tidak ada produk, jangan tampilkan pagination
+  if(totalVisible === 0) {
+      pagination.innerHTML = "<span class='text-gray-500'>Produk tidak ditemukan 😔</span>";
+      return;
+  }
+
   for (let i = 1; i <= totalPages; i++) {
     const btn = document.createElement("button");
     btn.textContent = i;
-    btn.className = `px-3 py-1 rounded border ${
-      i === currentPage ? "bg-sky-600 text-white" : "bg-gray-200"
-    }`;
+    
+    // Logic warna tombol pagination baru
+    if (i === currentPage) {
+        btn.className = "px-4 py-2 rounded-xl bg-pink-500 text-white shadow-lg font-bold transform scale-110 transition";
+    } else {
+        btn.className = "px-4 py-2 rounded-xl bg-white text-gray-600 border border-gray-200 hover:bg-pink-100 hover:text-pink-500 transition";
+    }
+
     btn.addEventListener("click", () => {
       currentPage = i;
       renderProduk();
+      // Scroll sedikit ke atas agar user sadar halaman berubah
+      document.getElementById("produk").scrollIntoView({ behavior: 'smooth' });
     });
     pagination.appendChild(btn);
   }
 }
 
-// 🔹 Handler kategori
+// 🔹 Handler kategori (Update Warna Tombol Filter)
 filterBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
+    // Reset semua tombol ke style default (pastel/gray)
     filterBtns.forEach((b) => {
-      b.classList.remove("bg-sky-600", "text-white");
-      b.classList.add("bg-gray-200");
+        // Hapus kelas aktif pink
+        b.classList.remove("bg-pink-500", "text-white", "shadow-md", "scale-105");
+        
+        // Kembalikan ke warna default masing-masing (opsional, atau set gray)
+        // Disini kita pakai logic simpel: kasih background gray lembut saat tidak aktif
+        b.classList.add("bg-gray-100", "text-gray-600");
+        
+        // Hapus specific pastel colors agar seragam saat inactive (opsional)
+        b.classList.remove("bg-blue-100", "text-blue-600", "bg-yellow-100", "text-yellow-700", "bg-green-100", "text-green-700", "bg-red-100", "text-red-600");
     });
-    btn.classList.add("bg-sky-600", "text-white");
-    btn.classList.remove("bg-gray-200");
+
+    // Set tombol yang diklik jadi Pink Active
+    btn.classList.remove("bg-gray-100", "text-gray-600");
+    btn.classList.add("bg-pink-500", "text-white", "shadow-md", "scale-105");
 
     activeCategory = btn.dataset.category || "all";
     currentPage = 1;
@@ -114,5 +146,7 @@ searchInput.addEventListener("input", () => {
 });
 
 // 🔹 Init pertama
-applyFilters();
-renderProduk();
+document.addEventListener("DOMContentLoaded", () => {
+    applyFilters();
+    renderProduk();
+});
