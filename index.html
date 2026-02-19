@@ -12,10 +12,8 @@
 
     <style>
         body { font-family: 'Fredoka', sans-serif; }
-        .blob-shape { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
-        /* Style tambahan untuk transisi filter agar halus */
         .filter-btn.active {
-            background-color: #ec4899; /* pink-500 */
+            background-color: #ec4899; 
             color: white;
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
             transform: scale(1.05);
@@ -57,9 +55,10 @@
     </div>
 </header>
 
-<section class="min-h-screen flex flex-col items-center justify-center text-center relative overflow-hidden" data-aos="fade-in">
+<section class="min-h-screen flex flex-col items-center justify-center text-center relative overflow-hidden pt-28 md:pt-0" data-aos="fade-in">
     <div class="absolute inset-0 z-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-    <div class="container mx-auto px-6 z-10 flex flex-col md:flex-row items-center gap-8 mt-16">
+    
+    <div class="container mx-auto px-6 z-10 flex flex-col md:flex-row items-center gap-8 md:mt-16">
         <div class="w-full md:w-1/2 text-center md:text-left" data-aos="fade-right">
             <span class="inline-block px-4 py-2 bg-yellow-300 text-yellow-800 rounded-full text-sm font-bold mb-4 shadow-sm">
                 ✨ Jajanan Murah & Enak
@@ -95,15 +94,9 @@
         </div>
     
         <div class="flex flex-wrap justify-center gap-4 mb-10" data-aos="zoom-in">
-            <button class="filter-btn active px-6 py-3 rounded-xl font-bold transition" data-category="all">
-                Semua
-            </button>
-            <button class="filter-btn bg-gray-100 text-gray-600 px-6 py-3 rounded-xl font-bold flex items-center gap-2 hover:bg-blue-500 hover:text-white transition" data-category="es">
-                🧊 Aneka Es
-            </button>
-            <button class="filter-btn bg-gray-100 text-gray-600 px-6 py-3 rounded-xl font-bold flex items-center gap-2 hover:bg-yellow-500 hover:text-white transition" data-category="kue">
-                🍰 Kue Basah
-            </button>
+            <button class="filter-btn active px-6 py-3 rounded-xl font-bold transition" data-category="all">Semua</button>
+            <button class="filter-btn bg-gray-100 text-gray-600 px-6 py-3 rounded-xl font-bold flex items-center gap-2 hover:bg-blue-500 hover:text-white transition" data-category="es">🧊 Aneka Es</button>
+            <button class="filter-btn bg-gray-100 text-gray-600 px-6 py-3 rounded-xl font-bold flex items-center gap-2 hover:bg-yellow-500 hover:text-white transition" data-category="kue">🍰 Kue Basah</button>
         </div>
 
         <div id="favoritGrid" class="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
@@ -120,75 +113,60 @@
     </div>
 </footer>
 
-<script src="js/produk.js"></script> <script>
-    // Inisialisasi AOS
-    AOS.init({
-        duration: 800,
-        once: true
-    });
+<script src="js/produk.js"></script> 
+<script>
+    AOS.init({ duration: 800, once: true });
 
-    // Mobile Hamburger
     const btn = document.getElementById('hamburger-btn');
     const menu = document.getElementById('mobile-menu');
-    btn.addEventListener('click', () => {
-        menu.classList.toggle('hidden');
-    });
+    btn.addEventListener('click', () => { menu.classList.toggle('hidden'); });
 
-    // Logika Sinkronisasi Khusus Halaman Index
-    // (Jika ingin membatasi jumlah produk yang tampil di index saja)
-function renderFavorit() {
-    const grid = document.getElementById('favoritGrid');
-    if(!grid) return;
+    function renderFavorit() {
+        const grid = document.getElementById('favoritGrid');
+        if(!grid) return;
 
-    // 1. Daftar produk yang ingin Anda tampilkan di halaman utama
-    const namaProdukPilihan = ["Bolu Pisang", "Es Matcha"];
-    // 2. Filter data: harus ada di daftar pilihan DAN sesuai dengan kategori yang dipilih
-    const filtered = productsData.filter(p => {
-        const isSelected = namaProdukPilihan.includes(p.name);
-        const isCategoryMatch = currentCategory === "all" || p.category === currentCategory;
-        return isSelected && isCategoryMatch;
-    });
+        const namaProdukPilihan = ["Bolu Pisang", "Es Matcha"];
+        
+        const filtered = productsData.filter(p => {
+            const isSelected = namaProdukPilihan.includes(p.name);
+            const isCategoryMatch = currentCategory === "all" || p.category === currentCategory;
+            return isSelected && isCategoryMatch;
+        });
 
-    grid.innerHTML = "";
-    
-    // 3. Jika hasil filter kosong (misal: kategori 'kue' diklik tapi tidak ada kue di daftar pilihan)
-    if (filtered.length === 0) {
-        grid.innerHTML = `<p class="col-span-full text-center text-gray-400 py-10">Tidak ada menu favorit di kategori ini.</p>`;
+        grid.innerHTML = "";
+        
+        if (filtered.length === 0) {
+            grid.innerHTML = `<p class="col-span-full text-center text-gray-400 py-10">Tidak ada menu favorit di kategori ini.</p>`;
+        }
+
+        filtered.forEach((product, index) => {
+            let borderColor = product.category === 'kue' ? "border-yellow-100 hover:border-yellow-300" : "border-blue-100 hover:border-blue-300";
+            
+            const card = `
+                <a href="detail-produk.html?produk=${encodeURIComponent(product.name)}" 
+                   class="bg-white rounded-2xl p-4 shadow-sm hover:shadow-xl transition transform hover:-translate-y-1 border ${borderColor}"
+                   data-aos="fade-up" data-aos-delay="${index * 50}">
+                    <div class="h-48 bg-gray-100 rounded-xl mb-4 overflow-hidden relative group">
+                        <img src="${product.img}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                        <span class="absolute top-2 right-2 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-lg text-xs font-bold shadow text-gray-700">${product.price}</span>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-800">${product.name}</h4>
+                    <p class="text-gray-500 text-sm capitalize">${product.category}</p>
+                </a>
+            `;
+            grid.insertAdjacentHTML('beforeend', card);
+        });
+
+        grid.insertAdjacentHTML('beforeend', `
+            <div class="flex flex-col justify-center items-center bg-gray-50 rounded-2xl p-4 border-2 border-dashed border-gray-300 hover:bg-gray-100 transition">
+                <h4 class="text-lg font-bold text-gray-500 mb-2">Lihat Semua</h4>
+                <a href="produk.html" class="w-12 h-12 flex items-center justify-center bg-pink-500 text-white rounded-full shadow hover:bg-pink-600 transition">➜</a>
+            </div>
+        `);
     }
 
-    filtered.forEach((product, index) => {
-        let borderColor = product.category === 'kue' ? "border-yellow-100 hover:border-yellow-300" : "border-blue-100 hover:border-blue-300";
-        
-        const card = `
-            <a href="detail-produk.html?produk=${encodeURIComponent(product.name)}" 
-               class="bg-white rounded-2xl p-4 shadow-sm hover:shadow-xl transition transform hover:-translate-y-1 border ${borderColor}"
-               data-aos="fade-up" data-aos-delay="${index * 50}">
-                <div class="h-48 bg-gray-100 rounded-xl mb-4 overflow-hidden relative group">
-                    <img src="${product.img}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
-                    <span class="absolute top-2 right-2 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-lg text-xs font-bold shadow text-gray-700">${product.price}</span>
-                </div>
-                <h4 class="text-xl font-bold text-gray-800">${product.name}</h4>
-                <p class="text-gray-500 text-sm capitalize">${product.category}</p>
-            </a>
-        `;
-        grid.insertAdjacentHTML('beforeend', card);
-    });
+    document.addEventListener("DOMContentLoaded", () => { renderFavorit(); });
 
-    // 4. Selalu munculkan tombol Lihat Semua di akhir
-    grid.insertAdjacentHTML('beforeend', `
-        <div class="flex flex-col justify-center items-center bg-gray-50 rounded-2xl p-4 border-2 border-dashed border-gray-300 hover:bg-gray-100 transition">
-            <h4 class="text-lg font-bold text-gray-500 mb-2">Lihat Semua</h4>
-            <a href="produk.html" class="w-12 h-12 flex items-center justify-center bg-pink-500 text-white rounded-full shadow hover:bg-pink-600 transition">➜</a>
-        </div>
-    `);
-}
-
-    // Jalankan render saat pertama kali buka
-    document.addEventListener("DOMContentLoaded", () => {
-        renderFavorit();
-    });
-
-    // Override filter click khusus di index
     document.querySelectorAll('.filter-btn').forEach(button => {
         button.addEventListener('click', function() {
             document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active', 'bg-pink-500', 'text-white'));
@@ -198,6 +176,5 @@ function renderFavorit() {
         });
     });
 </script>
-
 </body>
 </html>
