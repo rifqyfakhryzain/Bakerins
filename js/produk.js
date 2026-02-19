@@ -157,3 +157,75 @@ filterBtns.forEach(btn => {
 document.addEventListener("DOMContentLoaded", () => {
   renderGrid();
 });
+
+// MODIFIKASI: Tambahkan logika untuk menangani halaman Index
+function renderFavorit() {
+    const favoritGrid = document.getElementById("favoritGrid");
+    if (!favoritGrid) return; 
+
+    // Filter berdasarkan kategori yang dipilih (currentCategory)
+    // Dan batasi jumlah yang tampil (misal maksimal 7 produk + 1 tombol "Lihat Semua")
+    const filtered = productsData.filter(product => {
+        return currentCategory === "all" || product.category === currentCategory;
+    }).slice(0, 7); // Ambil 7 produk teratas saja
+
+    favoritGrid.innerHTML = "";
+
+    filtered.forEach((product, index) => {
+        let borderColor = "border-pink-100 hover:border-pink-300";
+        if (product.category === 'kue') borderColor = "border-yellow-100 hover:border-yellow-300";
+        if (product.category === 'es') borderColor = "border-blue-100 hover:border-blue-300";
+
+        const cardHTML = `
+          <a href="detail-produk.html?produk=${encodeURIComponent(product.name)}" 
+             class="produk-card block bg-white rounded-2xl p-4 shadow-sm hover:shadow-xl transition transform hover:-translate-y-1 border ${borderColor}"
+             data-aos="fade-up" data-aos-delay="${index * 50}">
+             <div class="h-48 bg-gray-100 rounded-xl mb-4 overflow-hidden relative group">
+                <img src="${product.img}" alt="${product.name}" 
+                     class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                     onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+                <span class="absolute top-2 right-2 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-lg text-xs font-bold shadow text-gray-700">
+                    ${product.price}
+                </span>
+             </div>
+             <div class="text-center md:text-left">
+                <h4 class="text-xl font-bold text-gray-800 mb-1 line-clamp-1">${product.name}</h4>
+                <p class="text-gray-500 text-sm capitalize">${product.category}</p>
+             </div>
+          </a>
+        `;
+        favoritGrid.insertAdjacentHTML('beforeend', cardHTML);
+    });
+
+    // Selalu tambahkan tombol "Lihat Semua" di akhir
+    const lihatSemuaHTML = `
+        <div class="flex flex-col justify-center items-center bg-gray-50 rounded-2xl p-4 border-2 border-dashed border-gray-300 hover:bg-gray-100 transition">
+             <h4 class="text-lg font-bold text-gray-500 mb-2">Lihat Semua</h4>
+             <a href="produk.html" class="w-12 h-12 flex items-center justify-center bg-pink-500 text-white rounded-full shadow hover:bg-pink-600 transition">
+                 ➜
+             </a>
+        </div>
+    `;
+    favoritGrid.insertAdjacentHTML('beforeend', lihatSemuaHTML);
+}
+
+// UPDATE: Bagian Event Listener Button agar memanggil renderFavorit juga
+filterBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+        // ... kode styling button yang sudah ada ...
+        filterBtns.forEach(b => b.classList.replace("bg-pink-500", "bg-gray-100")); // Contoh simpel
+
+        currentCategory = btn.dataset.category;
+        currentPage = 1;
+        
+        // Jalankan kedua fungsi render (JS akan otomatis mengabaikan jika ID tidak ditemukan)
+        renderGrid();    // Untuk halaman produk.html
+        renderFavorit(); // Untuk halaman index.html
+    });
+});
+
+// Jalankan saat load
+document.addEventListener("DOMContentLoaded", () => {
+    renderGrid();
+    renderFavorit();
+});
